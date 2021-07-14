@@ -1,0 +1,67 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export BROWSER:/usr/bin/firefox
+SETUVAR CHTSH_CONF:/home/cassidy/\x2econfig/cht/cht\x2econf
+SETUVAR --export DOOMWADDIR:/home/cassidy/Games/Doom/iwads
+SETUVAR EDITOR:nvim
+SETUVAR FZF_DEFAULT_OPTS:\x2d\x2dcolor\x3ddark\x20\x2d\x2dcolor\x3dfg\x3a\x2d1\x2cbg\x3a\x2d1\x2chl\x3a\x235fff87\x2cfg\x2b\x3a\x2d1\x2cbg\x2b\x3a\x2d1\x2chl\x2b\x3a\x23ffaf5f\x20\x2d\x2dcolor\x3dinfo\x3a\x23af87ff\x2cprompt\x3a\x235fff87\x2cpointer\x3a\x23ff87d7\x2cmarker\x3a\x23ff87d7\x2cspinner\x3a\x23ff87d7\x20\x2d\x2dheight\x20100
+SETUVAR --export GRIM_DEFAULT_DIR:/home/cassidy/Pictures/Screenshots/
+SETUVAR LESSHISTFILE:/home/cassidy/\x2ecache/less/history
+SETUVAR LESSKEY:/home/cassidy/\x2ecache/less/lesskey
+SETUVAR --export LESS_TERMCAP_mb:\x1b\x5b01\x3b31m
+SETUVAR --export LESS_TERMCAP_md:\x1b\x5b01\x3b31m
+SETUVAR --export LESS_TERMCAP_me:\x1b\x5b0m
+SETUVAR --export LESS_TERMCAP_se:\x1b\x5b0m
+SETUVAR --export LESS_TERMCAP_so:\x1b\x5b01\x3b44\x3b33m
+SETUVAR --export LESS_TERMCAP_ue:\x1b\x5b0m
+SETUVAR --export LESS_TERMCAP_us:\x1b\x5b01\x3b32m
+SETUVAR --export MOZ_DBUS_REMOTE:1
+SETUVAR NPM_CONFIG_USERCONFIG:/home/cassidy/\x2econfig/npm/npmrc
+SETUVAR --path PATH:/home/cassidy/\x2ecargo/bin/\x1e/usr/local/sbin\x1e/usr/local/bin\x1e/usr/bin\x1e/home/cassidy/\x2elocal/bin/
+SETUVAR --export PYTHONSTARTUP:\x2econfig/pythonrc\x2epy
+SETUVAR --export QT_QPA_PLATFORMTHEME:qt5ct
+SETUVAR QT_QTA_PLATFORM:wayland
+SETUVAR SDL_VIDEODRIVER:wayland
+SETUVAR VISUAL:/usr/bin/nvim
+SETUVAR WINEPREFIX:/home/cassidy/\x2elocal/share/wineprefixes/default
+SETUVAR --export XDG_CURRENT_DESKTOP:sway\x3agnome
+SETUVAR --export XDG_DATA_HOME:/home/cassidy/\x2elocal/share
+SETUVAR Z_DATA_DIR:/home/cassidy/\x2elocal/share/z
+SETUVAR __done_notify_sound:1
+SETUVAR __done_sway_ignore_visible:1
+SETUVAR __fish_initialized:3100
+SETUVAR _fisher_PatrickF1_2F_fzf_2E_fish_files:/home/cassidy/\x2econfig/fish/functions/__fzf_extract_var_info\x2efish\x1e/home/cassidy/\x2econfig/fish/functions/__fzf_preview_file\x2efish\x1e/home/cassidy/\x2econfig/fish/functions/__fzf_report_file_type\x2efish\x1e/home/cassidy/\x2econfig/fish/functions/__fzf_search_current_dir\x2efish\x1e/home/cassidy/\x2econfig/fish/functions/__fzf_search_git_log\x2efish\x1e/home/cassidy/\x2econfig/fish/functions/__fzf_search_git_status\x2efish\x1e/home/cassidy/\x2econfig/fish/functions/__fzf_search_history\x2efish\x1e/home/cassidy/\x2econfig/fish/functions/__fzf_search_shell_variables\x2efish\x1e/home/cassidy/\x2econfig/fish/conf\x2ed/fzf\x2efish
+SETUVAR _fisher_franciscolourenco_2F_done_files:/home/cassidy/\x2econfig/fish/conf\x2ed/done\x2efish
+SETUVAR _fisher_jorgebucaran_2F_autopair_2E_fish_files:/home/cassidy/\x2econfig/fish/functions/_autopair_backspace\x2efish\x1e/home/cassidy/\x2econfig/fish/functions/_autopair_insert_left\x2efish\x1e/home/cassidy/\x2econfig/fish/functions/_autopair_insert_right\x2efish\x1e/home/cassidy/\x2econfig/fish/functions/_autopair_insert_same\x2efish\x1e/home/cassidy/\x2econfig/fish/functions/_autopair_tab\x2efish\x1e/home/cassidy/\x2econfig/fish/conf\x2ed/autopair\x2efish
+SETUVAR _fisher_jorgebucaran_2F_fisher_files:/home/cassidy/\x2econfig/fish/functions/fisher\x2efish\x1e/home/cassidy/\x2econfig/fish/completions/fisher\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1efranciscolourenco/done\x1ejorgebucaran/autopair\x2efish\x1ePatrickF1/fzf\x2efish
+SETUVAR fish_color_autosuggestion:BD93F9
+SETUVAR fish_color_cancel:\x2dr
+SETUVAR fish_color_command:F8F8F2
+SETUVAR fish_color_comment:6272A4
+SETUVAR fish_color_cwd:green
+SETUVAR fish_color_cwd_root:red
+SETUVAR fish_color_end:50FA7B
+SETUVAR fish_color_error:FFB86C
+SETUVAR fish_color_escape:00a6b2
+SETUVAR fish_color_history_current:\x2d\x2dbold
+SETUVAR fish_color_host:normal
+SETUVAR fish_color_host_remote:yellow
+SETUVAR fish_color_match:\x2d\x2dbackground\x3dbrblue
+SETUVAR fish_color_normal:normal
+SETUVAR fish_color_operator:00a6b2
+SETUVAR fish_color_param:FF79C6
+SETUVAR fish_color_quote:F1FA8C
+SETUVAR fish_color_redirection:8BE9FD
+SETUVAR fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_status:red
+SETUVAR fish_color_user:brgreen
+SETUVAR fish_color_valid_path:\x2d\x2dunderline
+SETUVAR fish_greeting:\x1d
+SETUVAR fish_key_bindings:fish_vi_key_bindings
+SETUVAR fish_pager_color_completion:normal
+SETUVAR fish_pager_color_description:B3A06D\x1eyellow
+SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
+SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_user_paths:/home/cassidy/\x2elocal/bin/\x1e/home/cassidy/\x2ecargo/bin/
