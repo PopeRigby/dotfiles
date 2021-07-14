@@ -1,0 +1,149 @@
+/* -----------------------------------------------------------------------------
+ * Keyframes
+ * -------------------------------------------------------------------------- */
+
+@keyframes blink-warning {
+    70% {
+        color: @light;
+    }
+
+    to {
+        color: @light;
+        background-color: @warning;
+    }
+}
+
+@keyframes blink-critical {
+    70% {
+      color: @light;
+    }
+
+    to {
+        color: @light;
+        background-color: @critical;
+    }
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Styles
+ * -------------------------------------------------------------------------- */
+
+/* COLORS */
+
+/* Dracula */
+@define-color dark #282a36;
+@define-color lighter #44475a;
+@define-color light #f8f8f2;
+@define-color main #6272a4;
+@define-color cyan #8be9fd;
+@define-color green #50fa7b;
+@define-color orange #ffb86c;
+@define-color pink #ff79c6;
+@define-color purple #bd93f9;
+@define-color red #ff5555;
+@define-color yellow #f1fa8c;
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+    background: rgba(40, 42, 54, 0.8);
+    color: @light;
+    font-family: FiraCode Nerd Font Mono;
+    font-size: 10pt;
+    font-weight: normal;
+}
+
+#workspaces {
+  margin: 0 4px;
+}
+
+#workspaces button {
+  margin: 4px 0;
+  padding: 0 6px;
+  color: @light;
+}
+
+#workspaces button.focused {
+  border-radius: 4px;
+  background-color: @lighter;
+}
+
+#workspaces button.urgent {
+  color: @light;
+  border-radius: 4px;
+  background-color: @red
+}
+
+#tray {
+  margin: 4px 16px 4px 4px;
+  padding: 0 6px;
+  border-radius: 4px;
+  background-color: @lighter;
+}
+
+tooltip {
+	border-radius: 4px;
+	background-color: @lighter;
+}
+
+#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-weather, #custom-pacman, #clock, #temperature, #custom {
+  margin: 4px 2px;
+  padding: 0 6px;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+#pulseaudio { 
+    background: @purple;
+    color: @dark
+}
+
+#custom-weather {
+	background: @pink;
+	color: @dark;
+}
+
+#custom-pacman {
+	background: @green;
+	color: @dark;
+}
+
+#memory {
+    background: @cyan;
+    color: @dark;
+}
+
+#cpu {
+    background: @green;
+    color: @dark;
+}
+
+#temperature {
+    background: @orange;
+    color: @dark;
+}
+
+#battery {
+    background: @green;
+    color: @dark;
+}
+
+#clock.date {
+    background: @yellow;
+    color: @dark;
+}
+
+#clock.time {
+    background: @lighter;
+    color: @light;
+}
+

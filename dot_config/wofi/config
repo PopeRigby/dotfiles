@@ -1,0 +1,5 @@
+term=alacritty
+matching=contains
+insensitive=true
+allow_images=true
+show=drun

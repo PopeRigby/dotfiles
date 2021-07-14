@@ -1,0 +1,71 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+include conf.d/*
+
+### Variables
+# Your preferred terminal emulator
+set $term alacritty
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+set $menu wofi --show drun --allow-images --prompt=""
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output * bg ~/.local/share/wallpapers/dark_fantasy_waterfall.jpg fill
+#
+# Example configuration:
+#
+   output HDMI-A-1 resolution 1920x1080 position 0,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+### Idle configuration
+#
+# This will lock your screen after 10 minutes of inactivity, then turn off
+# your displays after another 5 minutes, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+exec swayidle -w \
+         timeout 10m 'swaylock -f -c 000000' \
+         timeout 15m 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
+# Inhibit idle when any window is fullscreen
+for_window [class="^.*"] inhibit_idle fullscreen for_window [app_id="^.*"] inhibit_idle fullscreen 
+
+### Input configuration
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled middle_emulation enabled
+#   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+### Status Bar
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+	bar {
+    	swaybar_command waybar
+	}	
+}
+
+include /etc/sway/config.d/*
+
+### Theming
+client.focused          #44475a #44475a #F8F8F2 #44475a   #44475a
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+client.background       #F8F8F2
+
+default_border normal 1

@@ -1,0 +1,14 @@
+# Set layout of Godot windows to tabbed
+for_window [class="Godot"] layout tabbed
+
+# Set layout of Alacritty windows to tabbed
+for_window [app_id="Alacritty"] layout tabbed
+
+# Move popup terminal to scratchpad and make it float
+for_window [title="Popup"] {
+    move scratchpad
+    floating enable
+}
+
+for_window [title="Firefox — Sharing Indicator"] kill;
+
