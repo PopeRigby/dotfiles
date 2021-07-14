@@ -1,0 +1,35 @@
+[user]
+	name = PopeRigby
+	email = poperigby@mailbox.org
+[core]
+	editor = nvim
+[alias]
+	yeet = restore .
+	s = status
+	c = checkout
+	cm = checkout master
+	h = log --graph --oneline
+[diff]
+	tool = nvim
+[merge]
+	tool = diffconflicts
+[credential]
+	helper = store
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pull]
+	ff = only
+[mergetool "diffconflicts"]
+	cmd = nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = true
+[mergetool]
+	keepBackup = false
+
+[sendemail]
+	smtpserver = smtp.mailbox.org
+	smtpuser = poperigby@mailbox.org
+	smtpencryption = ssl
+	smtpserverport = 465
