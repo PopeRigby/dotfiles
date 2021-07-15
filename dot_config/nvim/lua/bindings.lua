@@ -30,9 +30,11 @@ map('n', '<Leader>p', ':silent update<Bar>silent !firefox -P Preview %:p &<CR>')
 -- Yank to system regular clipboard
 map('v', '<C-c>', '\"+y')
 
--- Use <Tab> and <S-Tab> to navigate through popup menu
-map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
-map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
+-- Use <Tab> and <S-Tab> to navigate through completion menu
+map("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+map("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
 -- LSP bindings
 map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
