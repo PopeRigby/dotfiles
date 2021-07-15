@@ -20,3 +20,4 @@ cmd 'hi Normal ctermbg=NONE guibg=NONE'
 
 -- Commands & autocommands
 cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}' -- Disabled in visual mode
+cmd 'autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path %'
