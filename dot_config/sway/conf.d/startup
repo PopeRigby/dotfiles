@@ -3,7 +3,7 @@ exec_always dunst
 exec wlsunset
 exec kdeconnect-indicator
 exec safeeyes
-exec udiskie
 exec nextcloud
 exec eval $(gnome-keyring-daemon --start)
 exec export SSH_AUTH_SOCK
+exec thunar --daemon
