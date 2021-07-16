@@ -18,10 +18,11 @@ SETUVAR --export LESS_TERMCAP_us:\x1b\x5b01\x3b32m
 SETUVAR --export MOZ_DBUS_REMOTE:1
 SETUVAR NPM_CONFIG_USERCONFIG:/home/cassidy/\x2econfig/npm/npmrc
 SETUVAR --path PATH:/home/cassidy/\x2ecargo/bin/\x1e/usr/local/sbin\x1e/usr/local/bin\x1e/usr/bin\x1e/home/cassidy/\x2elocal/bin/
-SETUVAR --export PYTHONSTARTUP:\x2econfig/pythonrc\x2epy
+SETUVAR --export PYTHONSTARTUP:/home/cassidy/\x2econfig/pythonrc\x2epy
 SETUVAR --export QT_QPA_PLATFORMTHEME:qt5ct
 SETUVAR QT_QTA_PLATFORM:wayland
 SETUVAR SDL_VIDEODRIVER:wayland
+SETUVAR VIRTUAL_ENV_DISABLE_PROMPT:true
 SETUVAR VISUAL:/usr/bin/nvim
 SETUVAR WINEPREFIX:/home/cassidy/\x2elocal/share/wineprefixes/default
 SETUVAR --export XDG_CURRENT_DESKTOP:sway\x3agnome
