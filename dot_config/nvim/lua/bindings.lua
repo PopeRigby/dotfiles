@@ -35,6 +35,8 @@ map("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 map("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+map("i", "<C-y>", "compe#confirm('<C-y>')", {expr = true})
+map("i", "<CR>", "<C-y>", {})
 
 -- LSP bindings
 map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')

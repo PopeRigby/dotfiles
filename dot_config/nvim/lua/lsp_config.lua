@@ -16,7 +16,21 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagn
     update_in_insert = true,
 })
 
+vim.cmd [[autocmd ColorScheme * highlight NormalFloat guibg=#1f2335]]
+vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white]]
+
+
 -- Language server intialization
-require'lspconfig'.jedi_language_server.setup{on_attach = on_attach}
-require'lspconfig'.rust_analyzer.setup{on_attach = on_attach}
+local servers = { 
+    'jedi_language_server', 
+    'rust_analyzer',
+}
+
+for _, lsp in ipairs(servers) do
+  require'lspconfig'[lsp].setup {
+    flags = {
+        debounce_text_changes = 500,
+    }
+  }
+end
 
