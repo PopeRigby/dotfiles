@@ -1,0 +1,40 @@
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+# Prompt
+format = """
+$username\
+$hostname\
+$shlvl\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$docker_context\
+$custom\
+$jobs\
+$status\
+$character"""
+
+[directory]
+format = "[$path]($style) [$read_only]($read_only_style)"
+style = "blue"
+read_only = "🔒"
+
+[character]
+success_symbol = "[\\$](yellow)"
+error_symbol = "[\\$](red)"
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = "#ffb86c"
+stashed = "*"
+
+[status]
+style = "red"
+format = '[\[$status\]]($style) '
+disabled = true
