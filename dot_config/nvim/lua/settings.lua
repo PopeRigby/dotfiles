@@ -20,4 +20,6 @@ cmd 'hi Normal ctermbg=NONE guibg=NONE'
 
 -- Commands & autocommands
 cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}' -- Disabled in visual mode
-cmd 'autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path %' -- Automatically run `chezmoi apply` on save
+cmd 'au BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path %' -- Automatically run `chezmoi apply` on save
+cmd 'au CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})'
+
