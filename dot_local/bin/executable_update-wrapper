@@ -1,0 +1,9 @@
+#!/bin/fish
+paru -Syu
+pkill -SIGRTMIN+8 waybar
+set name "Update"
+set VISIBLE (swaymsg -t get_tree | jq -r --arg 'name' "$name" '[.. | select(.name? == $name)] | reduce .[] as $win (false; $win.visible // false or .)')
+if test $VISIBLE = "false";
+	notify-send "Update complete" -i pacman
+end
+read -p "set_color green; echo -n ':: '; set_color normal; echo 'Press ENTER to exit'"

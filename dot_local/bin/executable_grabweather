@@ -1,0 +1,52 @@
+#!/usr/bin/env python
+
+from requests import get
+from math import floor
+from emoji import emojize
+from os import getenv
+ 
+HOME = getenv("HOME")
+
+API_KEY = open(HOME + "/.local/share/grabweather-secrets").readlines()[0].strip()
+ZIP_CODE = open(HOME + "/.local/share/grabweather-secrets").readlines()[1].strip()
+
+weather_data = get("http://api.openweathermap.org/data/2.5/weather?" + "appid=" + API_KEY + "&zip=" + str(ZIP_CODE)).json()
+
+icons = {
+    # clear sky
+    "01d": "sun", 
+    "01n": "full_moon", 
+    # few clouds
+    "02d": "sun_behind_small_cloud", 
+    "02n": "sun_behind_small_cloud", 
+    # scattered clouds
+    "03d": "cloud", 
+    "03n": "cloud",
+    # broken clouds
+    "04d": "sun_behind_large_cloud",
+    "04n": "sun_behind_large_cloud",
+    # shower rain
+    "09d": "cloud_with_rain",
+    "09n": "cloud_with_rain",
+    # rain
+    "10d": "sun_behind_rain_cloud",
+    "10n": "sun_behind_rain_cloud",
+    # thunderstorm
+    "11d": "cloud_with_lightning",
+    "11n": "cloud_with_lightning",
+    # snow
+    "13d": "snowflake",
+    "13n": "snowflake",
+    # mist
+    "50d": "fog",
+    "50n": "fog"
+
+}
+
+temp = floor(1.8 * (weather_data["main"]["temp"] - 273) + 32)
+if icons.get(weather_data["weather"][0]["icon"]):
+    icon = emojize(":" + icons.get(weather_data["weather"][0]["icon"]) + ":")
+else:
+    icon = ""
+ 
+print(icon + " " + str(temp) + "°F")
