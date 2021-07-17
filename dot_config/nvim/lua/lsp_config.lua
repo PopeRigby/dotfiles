@@ -35,7 +35,7 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 require'lspconfig'.sumneko_lua.setup {
-  cmd = {"/usr/bin/lua-language-server"};
+  cmd = {vim.fn.system{"which", "lua-language-server"}};
   settings = {
     Lua = {
       runtime = {
