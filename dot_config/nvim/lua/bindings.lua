@@ -30,13 +30,13 @@ map('n', '<Leader>p', ':silent update<Bar>silent !firefox -P Preview %:p &<CR>')
 -- Yank to system regular clipboard
 map('v', '<C-c>', '\"+y')
 
--- Use <Tab> and <S-Tab> to navigate through completion menu
-map("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-map("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-map("i", "<C-y>", "compe#confirm('<C-y>')", {expr = true})
-map("i", "<CR>", "<C-y>", {})
+-- Navigate completion menu
+map('i', '<silent><expr> <C-Space>', 'compe#complete()')
+map('i', '<silent><expr> <CR>', 'compe#confirm(luaeval("require "nvim-autopairs".autopairs_cr()"))')
+map('i', '<silent><expr> <C-e>', 'compe#close("<C-e>")')
+map('i', '<silent><expr> <C-f>', 'compe#scroll({ "delta": +4 }')
+map('i', '<silent><expr> <C-d>', 'compe#scroll({ "delta": -4 }')
+
 
 -- LSP bindings
 map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')

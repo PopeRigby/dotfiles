@@ -13,6 +13,7 @@ opt.ignorecase = true                                   -- Ignore case while sea
 opt.smartcase = true                                    -- Do not ignore case with capitals while searching
 opt.splitbelow = true                                   -- Put new windows below current
 opt.splitright = true                                   -- Put new windows right of curren
+opt.updatetime = 250                                    -- Reduce updatetime which affects CursorHold
 
 -- Theming
 cmd 'colorscheme dracula'
@@ -20,6 +21,6 @@ cmd 'hi Normal ctermbg=NONE guibg=NONE'
 
 -- Commands & autocommands
 cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}' -- Disabled in visual mode
-cmd 'au BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path %' -- Automatically run `chezmoi apply` on save
-cmd 'au CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})'
+cmd 'au BufWritePost ~/.local/share/chezmoi/* silent ! chezmoi apply --source-path %' -- Automatically run `chezmoi apply` on save
+cmd 'au CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})' -- Show line diagnostics automatically in hover window
 
