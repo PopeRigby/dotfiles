@@ -17,10 +17,12 @@ opt.updatetime = 250                                    -- Reduce updatetime whi
 
 -- Theming
 cmd 'colorscheme dracula'
-cmd 'hi Normal ctermbg=NONE guibg=NONE'
+cmd 'highlight Normal ctermbg=NONE guibg=NONE'
+cmd 'autocmd ColorScheme * highlight CompeDocumentation guibg=#282a36'
+cmd 'autocmd ColorScheme * highlight NormalFloat guibg=#282a36'
 
 -- Commands & autocommands
-cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}' -- Disabled in visual mode
+cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}' -- Highlight text briefly after yank
 cmd 'au BufWritePost ~/.local/share/chezmoi/* silent ! chezmoi apply --source-path %' -- Automatically run `chezmoi apply` on save
 cmd 'au CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})' -- Show line diagnostics automatically in hover window
 
