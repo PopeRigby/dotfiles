@@ -74,7 +74,7 @@
     "memory": {
         "interval": 5,
         "format": " {}%", // Icon: memory
-		"on-click": "alacritty -e btm",
+		"on-click": "gnome-system-monitor",
         "states": {
             "warning": 70,
             "critical": 90
