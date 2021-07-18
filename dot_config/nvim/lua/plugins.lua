@@ -10,7 +10,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Define packages
-return require('packer').startup(function(use)
+return require('packer').startup({function(use)
     use 'wbthomason/packer.nvim'
     use 'nvim-treesitter/nvim-treesitter'
     use 'neovim/nvim-lspconfig'
@@ -22,4 +22,11 @@ return require('packer').startup(function(use)
     use 'whiteinge/diffconflicts'
     use 'folke/zen-mode.nvim'
     use 'windwp/nvim-autopairs'
-end)
+end,
+config = {
+  display = {
+    open_fn = function()
+      return require('packer.util').float({ border = 'none' })
+    end
+  }
+}})
