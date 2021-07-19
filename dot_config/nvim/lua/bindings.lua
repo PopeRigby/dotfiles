@@ -5,17 +5,21 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- Quick tab switching
-map('n', '<Leader>1', '1gt')
-map('n', '<Leader>2', '2gt')
-map('n', '<Leader>3', '3gt')
-map('n', '<Leader>4', '4gt')
-map('n', '<Leader>5', '5gt')
-map('n', '<Leader>6', '6gt')
-map('n', '<Leader>7', '7gt')
-map('n', '<Leader>8', '8gt')
-map('n', '<Leader>9', '9gt')
-map('n', '<Leader>0', ':tablast<cr>')
+-- Quick buffer switching
+map("n", "<Leader>l", ":ls<CR>")
+map("n", "<Leader>b", ":bp<CR>")
+map("n", "<Leader>f", ":bn<CR>")
+map("n", "<Leader>g", ":e#<CR>")
+map("n", "<Leader>1", ":1b<CR>")
+map("n", "<Leader>2", ":2b<CR>")
+map("n", "<Leader>3", ":3b<CR>")
+map("n", "<Leader>4", ":4b<CR>")
+map("n", "<Leader>5", ":5b<CR>")
+map("n", "<Leader>6", ":6b<CR>")
+map("n", "<Leader>7", ":7b<CR>")
+map("n", "<Leader>8", ":8b<CR>")
+map("n", "<Leader>9", ":9b<CR>")
+map("n", "<Leader>0", ":10b<CR>")
 
 -- Toggle line numbers on/off
 map('n', '<Leader>N', ':set invnumber<CR>')
