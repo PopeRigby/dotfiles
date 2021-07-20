@@ -55,6 +55,9 @@ require'lualine'.setup {
 }
 
 require'nvim-treesitter.configs'.setup {
+  autopairs = {
+        enable = true,
+  },
   highlight = {
         enable = true,
   },
@@ -83,7 +86,6 @@ require'compe'.setup {
     max_height = math.floor(vim.o.lines * 0.3),
     min_height = 1,
   };
-
   source = {
     path = true;
     buffer = true;
@@ -96,5 +98,18 @@ require'compe'.setup {
   };
 }
 
-require'nvim-autopairs'.setup {}
+require'nvim-autopairs'.setup {
+    check_ts = true,
+    ts_config = {
+        lua = {'string'},-- it will not add pair on that treesitter node
+    }
+}
 
+-- local ts_conds = require('nvim-autopairs.ts-conds')
+-- press % => %% is only inside comment or string
+-- require'nvim-autopairs'.add_rules {
+--   Rule("%", "%", "lua")
+--     :with_pair(ts_conds.is_ts_node({'string','comment'})),
+--   Rule("$", "$", "lua")
+--     :with_pair(ts_conds.is_not_ts_node({'function'}))
+-- }
