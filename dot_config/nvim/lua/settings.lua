@@ -14,6 +14,9 @@ opt.smartcase = true                                    -- Do not ignore case wi
 opt.splitbelow = true                                   -- Put new windows below current
 opt.splitright = true                                   -- Put new windows right of curren
 opt.updatetime = 250                                    -- Reduce updatetime which affects CursorHold
+opt.autoindent = true                                   -- Copy indent from current line when starting a new line
+opt.smartindent = true                                  -- Do smart autoindenting when starting a new line
+opt.scrolloff = 2                                       -- Lines of context
 
 -- Theming
 cmd 'colorscheme dracula'
@@ -62,7 +65,7 @@ require'nvim-treesitter.configs'.setup {
         enable = true,
   },
   indent = {
-        enable = true
+        enable = false
   },
 }
 
