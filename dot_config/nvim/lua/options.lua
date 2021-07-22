@@ -22,3 +22,29 @@ opt.scrolloff = 2                                       -- Lines of context
 cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}' -- Highlight text briefly after yank
 cmd 'au BufWritePost ~/.local/share/chezmoi/* silent ! chezmoi apply --source-path %' -- Automatically run `chezmoi apply` on save
 cmd 'au CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})' -- Show line diagnostics automatically in hover window
+
+-- Disable built-in plugins
+local disabled_built_ins = {
+    "netrw",
+    "netrwPlugin",
+    "netrwSettings",
+    "netrwFileHandlers",
+    "gzip",
+    "zip",
+    "zipPlugin",
+    "tar",
+    "tarPlugin",
+    "getscript",
+    "getscriptPlugin",
+    "vimball",
+    "vimballPlugin",
+    "2html_plugin",
+    "logipat",
+    "rrhelper",
+    "spellfile_plugin",
+    "matchit"
+}
+
+for _, plugin in pairs(disabled_built_ins) do
+    vim.g["loaded_" .. plugin] = 1
+end
