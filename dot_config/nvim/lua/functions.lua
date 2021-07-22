@@ -1,7 +1,3 @@
-function _G.split_term()
-   vim.api.nvim_command('split')
-end
-
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
