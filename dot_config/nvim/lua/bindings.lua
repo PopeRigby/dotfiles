@@ -6,10 +6,6 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Quick buffer switching
-map("n", "<Leader>l", ":ls<CR>")
-map("n", "<Leader>b", ":bp<CR>")
-map("n", "<Leader>f", ":bn<CR>")
-map("n", "<Leader>g", ":e#<CR>")
 map("n", "<Leader>1", ":1b<CR>")
 map("n", "<Leader>2", ":2b<CR>")
 map("n", "<Leader>3", ":3b<CR>")
@@ -22,7 +18,7 @@ map("n", "<Leader>9", ":9b<CR>")
 map("n", "<Leader>0", ":10b<CR>")
 
 -- Pull up a terminal in a split
-map("n", "<C-t>", "v:lua.split_term()", {expr = true})
+map("n", "<C-t>", [[&bt ==# 'terminal' ? '<cmd>bdelete!<cr>' : '<cmd>15split<bar>term<cr>']], {noremap = true, expr = true})
 
 -- Toggle line numbers on/off
 map('n', '<Leader>N', ':set invnumber<CR>')
@@ -43,6 +39,11 @@ map("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 map("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+
+-- Telescope
+map('n', '<leader>t', ':Telescope <CR>')
+map('n', '<leader>f', '<cmd>lua require("telescope.builtin").file_browser()<cr>')
+map('n', '<leader>b', '<cmd>lua require("telescope.builtin").buffers()<cr>')
 
 -- LSP bindings
 map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
