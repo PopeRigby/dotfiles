@@ -43,7 +43,7 @@ map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 -- Telescope
 map('n', '<leader>t', ':Telescope <CR>')
 map('n', '<leader>f', '<cmd>lua require("telescope.builtin").file_browser()<cr>')
-map('n', '<leader>b', '<cmd>lua require("telescope.builtin").buffers()<cr>')
+map('n', '<C-b>', '<cmd>lua require("telescope.builtin").buffers()<cr>')
 
 -- LSP bindings
 map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
