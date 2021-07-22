@@ -35,3 +35,5 @@
 	smtpserverport = 465
 [color]
 	ui = true
+[init]
+	defaultBranch = main
