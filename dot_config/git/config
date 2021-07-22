@@ -33,3 +33,5 @@
 	smtpuser = poperigby@mailbox.org
 	smtpencryption = ssl
 	smtpserverport = 465
+[color]
+	ui = true
