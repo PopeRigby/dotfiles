@@ -17,6 +17,8 @@ opt.updatetime = 250                                    -- Reduce updatetime whi
 opt.autoindent = true                                   -- Copy indent from current line when starting a new line
 opt.smartindent = true                                  -- Do smart autoindenting when starting a new line
 opt.scrolloff = 2                                       -- Lines of context
+opt.shell = "/bin/bash"                                 -- Use Bash for shell, as it's faster
+opt.lazyredraw = true                                   -- Don't redraw screen when running macros/regex on large files
 
 -- Commands & autocommands
 cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}' -- Highlight text briefly after yank
