@@ -17,8 +17,8 @@ map("n", "<Leader>8", ":8b<CR>")
 map("n", "<Leader>9", ":9b<CR>")
 map("n", "<Leader>0", ":10b<CR>")
 
--- Pull up a terminal in a split
-map("n", "<C-t>", [[&bt ==# 'terminal' ? '<cmd>bdelete!<cr>' : '<cmd>15split<bar>term<cr>']], {noremap = true, expr = true})
+-- Bind <Esc> to exit insert mode in terminal
+map('t', '<Esc>', '<C-\\><C-n>', {noremap = true})
 
 -- Toggle line numbers on/off
 map('n', '<Leader>N', ':set invnumber<CR>')
