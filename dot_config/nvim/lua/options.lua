@@ -19,6 +19,7 @@ opt.smartindent = true                                  -- Do smart autoindentin
 opt.scrolloff = 2                                       -- Lines of context
 opt.shell = "/bin/bash"                                 -- Use Bash for shell, as it's faster
 opt.lazyredraw = true                                   -- Don't redraw screen when running macros/regex on large files
+opt.hidden = true                                       -- Don't abandon hidden buffers
 
 -- Commands & autocommands
 cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}' -- Highlight text briefly after yank

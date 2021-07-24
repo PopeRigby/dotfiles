@@ -1,5 +1,7 @@
-require 'plugins'
-require 'settings'
-require 'bindings'
-require 'lsp_config'
-require 'functions'
+require 'options'
+require 'pluginList'
+require 'mappings'
+require 'utils'
+
+require 'theming'
+require 'packerInit'

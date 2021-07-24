@@ -1,5 +1,17 @@
 -- Define packages
-return require('packer').startup({function(use)
+
+local present, _ = pcall(require, "packerInit")
+local packer = require 'packer'
+
+if present then
+    packer = require "packer"
+else
+    return false
+end
+
+local use = packer.use
+
+return packer.startup(function()
     use {
         'hoob3rt/lualine.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
@@ -16,15 +28,10 @@ return require('packer').startup({function(use)
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-compe'
     use 'Mofiqul/dracula.nvim'
-    use 'tpope/vim-commentary'
-    use 'whiteinge/diffconflicts'
-    use 'folke/zen-mode.nvim'
+    use "Pocco81/TrueZen.nvim"
     use 'windwp/nvim-autopairs'
-end,
-config = {
-  display = {
-    open_fn = function()
-      return require('packer.util').float({ border = 'none' })
-    end
-  }
-}})
+    use 'b3nj5m1n/kommentary'
+    use 'akinsho/nvim-toggleterm.lua'
+    use 'whiteinge/diffconflicts'
+end
+)

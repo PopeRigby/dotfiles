@@ -1,3 +1,5 @@
+local cmd = vim.cmd
+
 cmd 'colorscheme dracula'
 cmd 'highlight Normal ctermbg=NONE guibg=NONE'
 cmd 'autocmd ColorScheme * highlight CompeDocumentation guibg=#282a36'
