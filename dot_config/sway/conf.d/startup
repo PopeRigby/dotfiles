@@ -6,4 +6,4 @@ exec safeeyes
 exec nextcloud
 exec eval $(gnome-keyring-daemon --start)
 exec export SSH_AUTH_SOCK
-exec thunar --daemon
+exec dolphin --daemon
