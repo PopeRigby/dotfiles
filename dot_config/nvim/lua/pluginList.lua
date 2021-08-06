@@ -25,7 +25,6 @@ return packer.startup(function()
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
-    use 'lukas-reineke/indent-blankline.nvim'
     use 'wbthomason/packer.nvim'
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-compe'
