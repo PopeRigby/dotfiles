@@ -1,0 +1,3 @@
+[submodule "dot_config/ranger/ranger/plugins/ranger-devicons2"]
+	path = dot_config/ranger/ranger/plugins/ranger-devicons2
+	url = git@github.com:cdump/ranger-devicons2.git
