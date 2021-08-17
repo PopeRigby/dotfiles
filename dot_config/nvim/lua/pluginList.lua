@@ -25,9 +25,10 @@ return packer.startup(function()
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
+    use 'ms-jpq/coq_nvim'
     use 'wbthomason/packer.nvim'
     use 'neovim/nvim-lspconfig'
-    use 'hrsh7th/nvim-compe'
+    -- use 'hrsh7th/nvim-compe'
     use 'Mofiqul/dracula.nvim'
     use "Pocco81/TrueZen.nvim"
     use 'windwp/nvim-autopairs'
