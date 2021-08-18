@@ -70,9 +70,6 @@
         --reboot-command="systemctl reboot" \
         --selection-label
 
-	# Popup terminal
-	bindsym $mod+t exec swaymsg [title="Popup"] scratchpad show || $(exec alacritty --config-file "/home/cassidy/.config/alacritty/popup.yml" -t "Popup" & sleep 0.2 && swaymsg [title="Popup"] scratchpad show)
-
 	# Screenshots
   # Print the full screen
   bindsym Print exec grim
