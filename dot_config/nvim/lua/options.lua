@@ -19,22 +19,12 @@ opt.smartindent = true                                  -- Do smart autoindentin
 opt.scrolloff = 2                                       -- Lines of context
 opt.lazyredraw = true                                   -- Don't redraw screen when running macros/regex on large files
 opt.hidden = true                                       -- Don't abandon hidden buffers
+-- opt.indent_blankline_show_first_indent_level = false
 
 -- Commands & autocommands
 cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}' -- Highlight text briefly after yank
 cmd 'au BufWritePost ~/.local/share/chezmoi/* silent ! chezmoi apply --source-path %' -- Automatically run `chezmoi apply` on save
 cmd 'au CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})' -- Show line diagnostics automatically in hover window
-
--- COQ Settings
-vim.g.coq_settings = {
-  ["auto_start"] = true,
-  ["keymap.jump_to_mark"] = "<c-n>",
-  ["keymap.bigger_preview"] = "<c-b>",
-  ["clients.buffers.enabled"] = false,
-  ["clients.snippets.enabled"] = false,
-  ["clients.tmux.enabled"] = false,
-  ["clients.tree_sitter.enabled"] = false,
-}
 
 -- Disable built-in plugins
 local disabled_built_ins = {
@@ -61,4 +51,3 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
     vim.g["loaded_" .. plugin] = 1
 end
-

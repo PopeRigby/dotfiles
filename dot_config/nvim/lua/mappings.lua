@@ -33,6 +33,13 @@ map('n', '<Leader>p', ':silent update<Bar>silent !firefox -P Preview %:p &<CR>')
 -- Yank to system regular clipboard
 map('v', '<C-c>', '\"+y')
 
+-- Navigate completion menu
+map('i', '<silent><expr> <C-Space>', 'compe#complete()')
+map("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+map("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+
 -- Telescope
 map('n', '<leader>t', ':Telescope <CR>')
 map('n', '<leader>f', '<cmd>lua require("telescope.builtin").file_browser()<cr>')
