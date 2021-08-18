@@ -1,5 +1,6 @@
 local cmd = vim.cmd
 local opt = vim.opt
+local var = vim.g
 
 -- Miscellaneous options
 opt.completeopt = {'menuone', 'noinsert', 'noselect'}   -- Set completeopt to have a better completion experience
@@ -19,9 +20,11 @@ opt.smartindent = true                                  -- Do smart autoindentin
 opt.scrolloff = 2                                       -- Lines of context
 opt.lazyredraw = true                                   -- Don't redraw screen when running macros/regex on large files
 opt.hidden = true                                       -- Don't abandon hidden buffers
--- opt.indent_blankline_show_first_indent_level = false
 
--- Commands & autocommands
+-- Variables
+var.mapleader = ";"
+
+-- Autocommands
 cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}' -- Highlight text briefly after yank
 cmd 'au BufWritePost ~/.local/share/chezmoi/* silent ! chezmoi apply --source-path %' -- Automatically run `chezmoi apply` on save
 cmd 'au CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})' -- Show line diagnostics automatically in hover window
