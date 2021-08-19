@@ -6,6 +6,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Quick buffer switching
+map("n", "<Leader><Tab>", ":bn<CR>")
 map("n", "<Leader>1", ":1b<CR>")
 map("n", "<Leader>2", ":2b<CR>")
 map("n", "<Leader>3", ":3b<CR>")
