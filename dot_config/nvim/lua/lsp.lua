@@ -1,7 +1,7 @@
--- Setup LSP servers
 local lspinstall = require('lspinstall')
 local lspconfig = require('lspconfig')
 
+-- Setup LSP servers
 local function setup_servers()
   lspinstall.setup()
   local servers = lspinstall.installed_servers()
@@ -34,12 +34,20 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagn
 })
 
 -- Individual LSP server configuration
-require('lspconfig').lua.setup {
+lspconfig.lua.setup {
     settings = {
         Lua = {
             diagnostics = {
                 globals = { 'vim' }
             }
         }
+    },
+    flags = {
+        debounce_text_changes = 500,
+    },
+}
+lspconfig.pyright.setup {
+    flags = {
+        debounce_text_changes = 500,
     }
 }
