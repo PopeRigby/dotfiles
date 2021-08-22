@@ -31,8 +31,8 @@ return packer.startup(function()
     }
     use 'wbthomason/packer.nvim'
     use 'neovim/nvim-lspconfig'
+    use 'kabouzeid/nvim-lspinstall'
     use 'Mofiqul/dracula.nvim'
-    use "Pocco81/TrueZen.nvim"
     use 'windwp/nvim-autopairs'
     use 'b3nj5m1n/kommentary'
     use 'akinsho/nvim-toggleterm.lua'

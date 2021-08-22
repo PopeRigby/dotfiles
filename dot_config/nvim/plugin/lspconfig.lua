@@ -13,49 +13,13 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagn
     update_in_insert = true,
 })
 
--- Language server intialization
-
-local servers = {
-    'jedi_language_server',
-    'rust_analyzer',
-}
-
-for _, lsp in ipairs(servers) do
-  require'lspconfig'[lsp].setup {
-    flags = {
-        debounce_text_changes = 500,
-    }
-  }
+-- Only show errors in gutter
+local orig_set_signs = vim.lsp.diagnostic.set_signs
+local set_signs_limited = function(diagnostics, bufnr, client_id, sign_ns, opts)
+  opts = opts or {}
+  opts.severity_limit = "Error"
+  orig_set_signs(diagnostics, bufnr, client_id, sign_ns, opts)
 end
 
--- Special Lua LSP config
+vim.lsp.diagnostic.set_signs = set_signs_limited
 
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-
-require'lspconfig'.sumneko_lua.setup {
-  cmd = {vim.fn.system{"which", "lua-language-server"}};
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-        -- Setup your lua path
-        path = runtime_path,
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-}
