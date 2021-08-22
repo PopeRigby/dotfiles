@@ -23,7 +23,6 @@ map('t', '<Esc>', '<C-\\><C-n>', {noremap = true})
 
 -- Toggle line numbers on/off
 map('n', '<Leader>N', ':set invnumber<CR>')
-map('i', '<Leader>N', '<C-O>:set invnumber<CR>')
 
 -- Turn off search highlight
 map('n', '<Leader>h', ':nohlsearch<CR>')
@@ -33,13 +32,6 @@ map('n', '<Leader>p', ':silent update<Bar>silent !firefox -P Preview %:p &<CR>')
 
 -- Yank to system regular clipboard
 map('v', '<C-c>', '\"+y')
-
--- Navigate completion menu
-map('i', '<silent><expr> <C-Space>', 'compe#complete()')
-map("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-map("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
 -- Telescope
 map('n', '<leader>t', ':Telescope <CR>')
