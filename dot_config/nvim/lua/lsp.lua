@@ -33,6 +33,36 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagn
     update_in_insert = true,
 })
 
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.documentationFormat = { 'markdown', 'plaintext' }
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.preselectSupport = true
+capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
+capabilities.textDocument.completion.completionItem.deprecatedSupport = true
+capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
+capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  },
+}
+
+-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+local servers = { 'lua', 'python' }
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    -- on_attach = my_custom_on_attach,
+    capabilities = capabilities,
+    flags = {
+        debounce_text_changes = 500,
+    }
+  }
+end
+
 -- Individual LSP server configuration
 lspconfig.lua.setup {
     settings = {
@@ -42,12 +72,4 @@ lspconfig.lua.setup {
             }
         }
     },
-    flags = {
-        debounce_text_changes = 500,
-    },
-}
-lspconfig.pyright.setup {
-    flags = {
-        debounce_text_changes = 500,
-    }
 }
