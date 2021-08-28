@@ -1,0 +1,8 @@
+{{ if eq .chezmoi.id "arch" -}}
+#!/bin/sh
+sudo /usr/bin/pacman install bat
+sudo /usr/bin/pacman install fish
+sudo /usr/bin/pacman install git
+sudo /usr/bin/pacman install nvim
+
+{{ end -}}
