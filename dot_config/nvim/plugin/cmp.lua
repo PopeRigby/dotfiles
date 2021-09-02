@@ -1,4 +1,15 @@
 local cmp = require 'cmp'
+
+local check_back_space = function()
+  local col = vim.fn.col '.' - 1
+  return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s' ~= nil
+end
+
+local t = function(str)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+
 cmp.setup {
     mapping = {
         ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -11,23 +22,31 @@ cmp.setup {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         },
-        ['<Tab>'] = function(fallback)
-          if vim.fn.pumvisible() == 1 then
-            vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
-          else
-            fallback()
-          end
-        end,
-        ['<S-Tab>'] = function(fallback)
-          if vim.fn.pumvisible() == 1 then
-            vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-p>', true, true, true), 'n')
-          else
-            fallback()
-          end
-        end,
+        ["<Tab>"] = cmp.mapping(function(fallback)
+            if vim.fn.pumvisible() == 1 then
+                vim.fn.feedkeys(t("<C-n>"), "n")
+            elseif check_back_space() then
+                vim.fn.feedkeys(t("<Tab>"), "n")
+            else
+                fallback()
+            end
+        end, {
+            "i",
+            "s",
+        }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if vim.fn.pumvisible() == 1 then
+                vim.fn.feedkeys(t("<C-p>"), "n")
+            else
+                fallback()
+            end
+        end, {
+            "i",
+            "s",
+        }),
     },
     sources = {
         { name = 'nvim_lsp' },
         { name = 'buffer' },
-    }
+    },
 }
