@@ -20,6 +20,9 @@ opt.smartindent = true                                  -- Do smart autoindentin
 opt.scrolloff = 2                                       -- Lines of context
 opt.lazyredraw = true                                   -- Don't redraw screen when running macros/regex on large files
 opt.hidden = true                                       -- Don't abandon hidden buffers
+opt.foldmethod = 'expr'
+opt.foldexpr = 'nvim_treesitter#foldexpr()'
+opt.foldlevelstart = 99
 
 -- Variables
 var.mapleader = ";"
