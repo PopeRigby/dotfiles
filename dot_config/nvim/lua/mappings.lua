@@ -33,11 +33,6 @@ map('n', '<Leader>p', ':silent update<Bar>silent !firefox -P Preview %:p &<CR>')
 -- Yank to system regular clipboard
 map('v', '<C-c>', '\"+y')
 
--- Telescope
-map('n', '<leader>t', ':Telescope <CR>')
-map('n', '<leader>f', '<cmd>lua require("telescope.builtin").file_browser()<cr>')
-map('n', '<C-b>', '<cmd>lua require("telescope.builtin").buffers()<cr>')
-
 -- LSP bindings
 map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
 map('n', '<space>;', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')

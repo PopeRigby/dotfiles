@@ -1,49 +1,36 @@
 local cmp = require 'cmp'
 
-local check_back_space = function()
-  local col = vim.fn.col '.' - 1
-  return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s' ~= nil
+local has_words_before = function()
+  local cursor = vim.api.nvim_win_get_cursor(0)
+  return not vim.api.nvim_get_current_line():sub(1, cursor[2]):match('^%s$')
 end
-
-local t = function(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
 
 cmp.setup {
     mapping = {
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
+        ['<C-Space>'] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Insert,
             select = true,
         },
-        ["<Tab>"] = cmp.mapping(function(fallback)
+
+        ['<Tab>'] = function(fallback)
             if vim.fn.pumvisible() == 1 then
-                vim.fn.feedkeys(t("<C-n>"), "n")
-            elseif check_back_space() then
-                vim.fn.feedkeys(t("<Tab>"), "n")
-            else
+                cmp.select_next_item()
+            elseif has_words_before() then
                 fallback()
+            else
+                cmp.complete()
             end
-        end, {
-            "i",
-            "s",
-        }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
+        end,
+
+        ['<S-Tab>'] = function(fallback)
             if vim.fn.pumvisible() == 1 then
-                vim.fn.feedkeys(t("<C-p>"), "n")
-            else
+                cmp.select_prev_item()
+            elseif has_words_before() then
                 fallback()
+            else
+                cmp.complete()
             end
-        end, {
-            "i",
-            "s",
-        }),
+        end,
     },
     sources = {
         { name = 'nvim_lsp' },
