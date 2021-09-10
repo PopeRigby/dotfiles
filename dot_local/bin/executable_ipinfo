@@ -1,0 +1,10 @@
+#!/usr/bin/python
+
+from requests import get
+
+response = get("http://ipinfo.io", headers={"Accept": "application/json"})
+
+data = response.json()
+
+print(f"IP: {data['ip']}")
+print(f"Location: {data['city']}, {data['region']}, {data['country']}")
