@@ -6,7 +6,7 @@ augroup FormatAutogroup
 augroup END
 ]], true)
 
-require('formatter').setup {
+require("formatter").setup {
     filetype = {
         python = {
             -- black
@@ -18,5 +18,15 @@ require('formatter').setup {
                 }
             end
         },
+        lua = {
+            -- luafmt
+            function()
+                return {
+                    exe = "npx lua-fmt",
+                    args = {"--indent-count", 4, "--stdin"},
+                    stdin = true
+                }
+            end
+        }
     }
 }
