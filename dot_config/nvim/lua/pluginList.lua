@@ -32,6 +32,7 @@ return packer.startup(function()
     use 'wbthomason/packer.nvim'
     use 'neovim/nvim-lspconfig'
     use 'kabouzeid/nvim-lspinstall'
+    use 'mhartington/formatter.nvim'
     use 'Mofiqul/dracula.nvim'
     use 'windwp/nvim-autopairs'
     use 'b3nj5m1n/kommentary'
