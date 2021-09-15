@@ -1,10 +1,13 @@
 -- Format on write
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+    [[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.py FormatWrite
+  autocmd BufWritePost *.py,*.pybuild,*.lua FormatWrite
 augroup END
-]], true)
+]],
+    true
+)
 
 require("formatter").setup {
     filetype = {
