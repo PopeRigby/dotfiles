@@ -35,6 +35,9 @@ map("n", "<Leader>p", ":silent update<Bar>silent !firefox -P Preview %:p &<CR>")
 -- Yank to system regular clipboard
 map("v", "<C-c>", '"+y')
 
+-- Yank until end of line
+map("n", "Y", "y$")
+
 -- LSP bindings
 map("n", "<space>,", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>")
 map("n", "<space>;", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>")
