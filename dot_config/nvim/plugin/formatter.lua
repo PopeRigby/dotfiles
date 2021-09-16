@@ -9,27 +9,25 @@ augroup END
     true
 )
 
-require("formatter").setup {
+require("formatter").setup({
     filetype = {
         python = {
-            -- black
             function()
                 return {
                     exe = "black",
-                    args = {"-"},
-                    stdin = true
+                    args = { "-" },
+                    stdin = true,
                 }
-            end
+            end,
         },
         lua = {
-            -- luafmt
             function()
                 return {
-                    exe = "npx lua-fmt",
-                    args = {"--indent-count", 4, "--stdin"},
-                    stdin = true
+                    exe = "stylua",
+                    args = { "--indent-type", "Spaces", "-" },
+                    stdin = true,
                 }
-            end
-        }
-    }
-}
+            end,
+        },
+    },
+})

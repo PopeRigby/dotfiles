@@ -1,6 +1,6 @@
 -- Friendly mapping function
 local function map(mode, lhs, rhs, opts)
-    local options = {noremap = true}
+    local options = { noremap = true }
     if opts then
         options = vim.tbl_extend("force", options, opts)
     end
@@ -21,7 +21,7 @@ map("n", "<Leader>9", ":9b<CR>")
 map("n", "<Leader>0", ":10b<CR>")
 
 -- Bind <Esc> to exit insert mode in terminal
-map("t", "<Esc>", "<C-\\><C-n>", {noremap = true})
+map("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
 -- Toggle line numbers on/off
 map("n", "<Leader>N", ":set invnumber<CR>")

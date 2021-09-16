@@ -3,7 +3,7 @@ local opt = vim.opt
 local var = vim.g
 
 -- Miscellaneous options
-opt.completeopt = {"menuone", "noinsert", "noselect"} -- Set completeopt to have a better completion experience
+opt.completeopt = { "menuone", "noinsert", "noselect" } -- Set completeopt to have a better completion experience
 opt.expandtab = true -- Use spaces instead of tabs
 opt.tabstop = 4 -- Number of spaces tabs count for
 opt.shiftwidth = 4 -- Size of an indent
@@ -28,9 +28,9 @@ opt.foldlevelstart = 99
 var.mapleader = ";"
 
 -- Autocommands
-cmd "au TextYankPost * lua vim.highlight.on_yank {on_visual = false}" -- Highlight text briefly after yank
-cmd "au BufWritePost ~/.local/share/chezmoi/* silent ! chezmoi apply --source-path %" -- Automatically run `chezmoi apply` on save
-cmd "au CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})" -- Show line diagnostics automatically in hover window
+cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}") -- Highlight text briefly after yank
+cmd("au BufWritePost ~/.local/share/chezmoi/* silent ! chezmoi apply --source-path %") -- Automatically run `chezmoi apply` on save
+cmd("au CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})") -- Show line diagnostics automatically in hover window
 
 -- Disable built-in plugins
 local disabled_built_ins = {
@@ -51,7 +51,7 @@ local disabled_built_ins = {
     "logipat",
     "rrhelper",
     "spellfile_plugin",
-    "matchit"
+    "matchit",
 }
 
 for _, plugin in pairs(disabled_built_ins) do

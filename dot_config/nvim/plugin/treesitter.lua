@@ -1,11 +1,11 @@
-require "nvim-treesitter.configs".setup {
+require("nvim-treesitter.configs").setup({
     autopairs = {
-        enable = true
+        enable = true,
     },
     highlight = {
-        enable = true
+        enable = true,
     },
     indent = {
-        enable = false
-    }
-}
+        enable = false,
+    },
+})
