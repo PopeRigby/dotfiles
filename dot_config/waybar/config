@@ -74,7 +74,7 @@
     "memory": {
         "interval": 5,
         "format": " {}%", // Icon: memory
-		"on-click": "alacritty -e htop",
+		"on-click": "alacritty -e btm",
         "states": {
             "warning": 70,
             "critical": 90
