@@ -14,4 +14,5 @@ if test -z "$DISPLAY"; and test $TTY1 = "/dev/tty1"
   exec sway
 end
 
-set -gx QT_QPA_PLATFORMTHEME qt6ct
+set -gx QT_QPA_PLATFORMTHEME kde
+set -g fish_greeting
