@@ -15,6 +15,9 @@ return packer.startup(function()
     use({
         "NTBBloodbath/galaxyline.nvim",
         -- some optional icons
+        config = function()
+            require("galaxyline.themes.eviline")
+        end,
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
     use({
