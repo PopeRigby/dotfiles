@@ -1,9 +1,0 @@
-[submodule "dot_config/ranger/plugins/devicons2"]
-	path = dot_config/ranger/plugins/devicons2
-	url = git@github.com:cdump/ranger-devicons2.git
-[submodule "dot_config/ranger/plugins/fzf"]
-	path = dot_config/ranger/plugins/fzf
-	url = git@github.com:cjbassi/ranger-fzf.git
-[submodule "dot_config/ranger/plugins/archives"]
-	path = dot_config/ranger/plugins/archives
-	url = git@github.com:maximtrp/ranger-archives.git
