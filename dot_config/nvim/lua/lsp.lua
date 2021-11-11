@@ -1,22 +1,4 @@
-local lspinstall = require("lspinstall")
 local lspconfig = require("lspconfig")
-
--- Setup LSP servers
-local function setup_servers()
-    lspinstall.setup()
-    local servers = lspinstall.installed_servers()
-    for _, server in pairs(servers) do
-        lspconfig[server].setup({})
-    end
-end
-
-setup_servers()
-
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-lspinstall.post_install_hook = function()
-    setup_servers() -- reload installed servers
-    vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
 
 -- Change diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
@@ -33,29 +15,30 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
     update_in_insert = true,
 })
 
--- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+-- Setup LSP servers
+local lsp_installer = require("nvim-lsp-installer")
 
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { "lua", "python" }
-for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup({
-        -- on_attach = my_custom_on_attach,
+-- Register a handler that will be called for all installed servers.
+-- Alternatively, you may also register handlers on specific server instances instead (see example below).
+lsp_installer.on_server_ready(function(server)
+    -- Additional capabilities supported by nvim-cmp
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
+    -- Options to be passed to language servers
+    local opts = {
         capabilities = capabilities,
         flags = {
             debounce_text_changes = 500,
         },
-    })
-end
+    }
 
--- Individual LSP server configuration
-lspconfig.lua.setup({
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { "vim" },
-            },
-        },
-    },
-})
+    -- (optional) Customize the options passed to the server
+    -- if server.name == "tsserver" then
+    --     opts.root_dir = function() ... end
+    -- end
+
+    -- This setup() function is exactly the same as lspconfig's setup function.
+    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/ADVANCED_README.md
+    server:setup(opts)
+end)
