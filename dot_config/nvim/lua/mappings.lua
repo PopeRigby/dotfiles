@@ -26,9 +26,6 @@ map("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 -- Toggle line numbers on/off
 map("n", "<Leader>N", ":set invnumber<CR>")
 
--- Turn off search highlight
-map("n", "<Leader>h", ":nohlsearch<CR>")
-
 -- Preview html file in firefox
 map("n", "<Leader>p", ":silent update<Bar>silent !firefox -P Preview %:p &<CR>")
 
