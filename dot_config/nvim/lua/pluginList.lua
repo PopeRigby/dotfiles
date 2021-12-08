@@ -13,13 +13,10 @@ local use = packer.use
 
 return packer.startup(function()
     use({
-        "NTBBloodbath/galaxyline.nvim",
-        -- some optional icons
-        config = function()
-            require("galaxyline.themes.eviline")
-        end,
+        "nvim-lualine/lualine.nvim",
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
+
     use({
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
