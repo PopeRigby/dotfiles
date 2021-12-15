@@ -1,5 +1,4 @@
-require "packerInit"
-require "pluginList"
+require "plugins"
 require "lsp"
 require "utils"
 require "options"
