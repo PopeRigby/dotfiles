@@ -11,7 +11,6 @@ local options = {
     shiftwidth = 4, -- Size of an indent
     cursorline = true, -- Highlight cursor line
     timeoutlen = 2000, -- Lengthen leader key timeout
-    termguicolors = true, -- True color support
     ignorecase = true, -- Ignore case while searching
     showmode = false, -- we don't need to see things like -- INSERT -- anymore
     smartcase = true, -- Do not ignore case with capitals while searching

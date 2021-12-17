@@ -66,6 +66,7 @@ return packer.startup(function(use)
     use("b3nj5m1n/kommentary")
     use("akinsho/nvim-toggleterm.lua")
     use("whiteinge/diffconflicts")
+    use("stevearc/dressing.nvim")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
