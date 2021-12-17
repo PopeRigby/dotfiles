@@ -13,7 +13,6 @@ local options = {
     timeoutlen = 2000, -- Lengthen leader key timeout
     termguicolors = true, -- True color support
     ignorecase = true, -- Ignore case while searching
-    mouse = "a", -- Enable mouse support
     showmode = false, -- we don't need to see things like -- INSERT -- anymore
     smartcase = true, -- Do not ignore case with capitals while searching
     splitbelow = true, -- Put new windows below current
