@@ -8,7 +8,10 @@ require("lualine").setup({
         always_divide_middle = true,
     },
     sections = {
-        lualine_a = { "mode" },
+        lualine_a = { {
+            "mode",
+            color = { gui = "bold" },
+        } },
         lualine_b = { "branch", { "diagnostics", sources = { "nvim_diagnostic" } } },
         lualine_c = { "filename" },
         lualine_x = { "fileformat", "filetype" },
