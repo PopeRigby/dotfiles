@@ -34,9 +34,7 @@ local kind_icons = {
 
 local cmp = require("cmp")
 cmp.setup({
-    -- ... Your other configuration ...
     mapping = {
-        -- ... Your other mappings ...
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
@@ -58,22 +56,6 @@ cmp.setup({
             "i",
             "s",
         }),
-        -- ... Your other mappings ...
-    },
-    formatting = {
-        fields = { "kind", "abbr", "menu" },
-        format = function(entry, vim_item)
-            -- Kind icons
-            vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-            -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-            vim_item.menu = ({
-                nvim_lsp = "[LSP]",
-                luasnip = "[Snippet]",
-                buffer = "[Buffer]",
-                path = "[Path]",
-            })[entry.source.name]
-            return vim_item
-        end,
     },
     sources = {
         { name = "nvim_lsp", "buffer", "path" },
@@ -84,6 +66,6 @@ cmp.setup({
     },
     experimental = {
         ghost_text = false,
-        native_menu = true,
+        -- native_menu = true,
     },
 })
