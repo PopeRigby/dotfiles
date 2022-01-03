@@ -37,7 +37,7 @@ var.mapleader = ";"
 -- Autocommands
 cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}") -- Highlight text briefly after yank
 cmd("au BufWritePost ~/.local/share/chezmoi/* silent ! chezmoi apply --source-path %") -- Automatically run `chezmoi apply` on save
-cmd("au CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})") -- Show line diagnostics automatically in hover window
+cmd("au CursorHold,CursorHoldI * lua vim.diagnostic.open_float()") -- Show line diagnostics automatically in hover window
 
 -- Disable built-in plugins
 local disabled_built_ins = {
