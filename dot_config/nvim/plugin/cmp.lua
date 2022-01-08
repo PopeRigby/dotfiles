@@ -66,6 +66,6 @@ cmp.setup({
     },
     experimental = {
         ghost_text = false,
-        -- native_menu = true,
+        native_menu = true,
     },
 })
