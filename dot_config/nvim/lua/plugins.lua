@@ -67,6 +67,7 @@ return packer.startup(function(use)
     use("akinsho/nvim-toggleterm.lua")
     use("whiteinge/diffconflicts")
     use("stevearc/dressing.nvim")
+    use("isobit/vim-caddyfile")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
