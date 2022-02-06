@@ -5,6 +5,7 @@ local var = vim.g
 local options = {
     completeopt = { "menuone", "noinsert", "noselect" }, -- Set completeopt to have a better completion experience
     undofile = true, -- Enable persistent undo
+    signcolumn = "yes",
     expandtab = true, -- Use spaces instead of tabs
     tabstop = 4, -- Number of spaces tabs count for
     shiftwidth = 4, -- Size of an indent
