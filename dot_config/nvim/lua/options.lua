@@ -25,6 +25,7 @@ local options = {
     foldmethod = "expr",
     foldexpr = "nvim_treesitter#foldexpr()",
     foldlevelstart = 99,
+    conceallevel = 2,
 }
 
 for k, v in pairs(options) do
