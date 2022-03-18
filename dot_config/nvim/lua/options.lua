@@ -26,6 +26,7 @@ local options = {
     foldexpr = "nvim_treesitter#foldexpr()",
     foldlevelstart = 99,
     conceallevel = 2,
+    laststatus = 3, -- Enable global statusline
 }
 
 for k, v in pairs(options) do
