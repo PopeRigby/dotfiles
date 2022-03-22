@@ -7,6 +7,7 @@ return {
     window_background_opacity = 0.9,
     window_close_confirmation = "NeverPrompt",
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+    show_update_window = false,
     window_padding = {
         left = 0,
         right = 0,
