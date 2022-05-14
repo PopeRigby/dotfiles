@@ -1,5 +1,5 @@
 [user]
-	name = lumbo7332
+	name = Pope_Rigby
 	email = poperigby@mailbox.org
 [core]
 	editor = nvim
@@ -7,7 +7,7 @@
 	yeet = restore .
 	s = status
 	c = checkout
-	cm = checkout master
+	cm = checkout main
 	h = log --graph --oneline
 [diff]
 	tool = nvim
@@ -39,3 +39,5 @@
 	defaultBranch = main
 [push]
 	default = current
+[safe]
+	directory = /home/cassidy/.local/share/package-list
