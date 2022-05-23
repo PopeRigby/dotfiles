@@ -68,6 +68,7 @@ return packer.startup(function(use)
     use("whiteinge/diffconflicts")
     use("stevearc/dressing.nvim")
     use("isobit/vim-caddyfile")
+    use("simrat39/rust-tools.nvim")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
