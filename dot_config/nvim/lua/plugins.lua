@@ -57,9 +57,21 @@ return packer.startup(function(use)
         "hrsh7th/nvim-cmp",
         requires = { "hrsh7th/cmp-nvim-lsp" },
     })
+    use({
+        "williamboman/nvim-lsp-installer",
+        {
+            "neovim/nvim-lspconfig",
+            config = function()
+                require("nvim-lsp-installer").setup({
+                    automatic_installation = true,
+                })
+                local lspconfig = require("lspconfig")
+                lspconfig.sumneko_lua.setup({})
+                lspconfig.rust_analyzer.setup({})
+            end,
+        },
+    })
     use("wbthomason/packer.nvim")
-    use("neovim/nvim-lspconfig")
-    use("williamboman/nvim-lsp-installer")
     use("mhartington/formatter.nvim")
     use("Mofiqul/dracula.nvim")
     use("windwp/nvim-autopairs")
@@ -68,7 +80,6 @@ return packer.startup(function(use)
     use("whiteinge/diffconflicts")
     use("stevearc/dressing.nvim")
     use("isobit/vim-caddyfile")
-    use("simrat39/rust-tools.nvim")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
