@@ -1,4 +1,3 @@
-# Defined in - @ line 1
-function haddock --wraps='ssh cassidy@haddock' --description 'alias haddock ssh cassidy@haddock'
-  ssh cassidy@haddock $argv;
+function haddock --wraps='ssh cassidy@192.168.1.184' --description 'alias haddock ssh cassidy@192.168.1.184'
+  ssh cassidy@192.168.1.184 $argv; 
 end
