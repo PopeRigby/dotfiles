@@ -58,6 +58,12 @@ return packer.startup(function(use)
         requires = { "hrsh7th/cmp-nvim-lsp" },
     })
     use({
+        "numToStr/Comment.nvim",
+        config = function()
+            require("Comment").setup()
+        end,
+    })
+    use({
         "williamboman/nvim-lsp-installer",
         {
             "neovim/nvim-lspconfig",
@@ -75,7 +81,6 @@ return packer.startup(function(use)
     use("mhartington/formatter.nvim")
     use("Mofiqul/dracula.nvim")
     use("windwp/nvim-autopairs")
-    use("b3nj5m1n/kommentary")
     use("akinsho/toggleterm.nvim")
     use("whiteinge/diffconflicts")
     use("stevearc/dressing.nvim")
