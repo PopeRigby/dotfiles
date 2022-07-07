@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 
 return {
+    enable_wayland = false,
     font = wezterm.font("FiraMono Nerd Font Mono"),
     font_rules = {
         {
