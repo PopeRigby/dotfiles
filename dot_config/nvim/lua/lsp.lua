@@ -26,13 +26,13 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
     lspconfig[server.name].setup({})
 end
 
--- Add vim to globals to supress annoying warning
-lspconfig.sumneko_lua.setup {
+-- Add vim and on_attach to globals to supress annoying warning
+lspconfig.sumneko_lua.setup({
     settings = {
         Lua = {
             diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
-}
+                globals = { "vim", "on_attach" },
+            },
+        },
+    },
+})
