@@ -45,3 +45,6 @@ map("n", "<space>h", "<cmd>lua vim.lsp.buf.hover()<CR>")
 map("n", "<space>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
 map("n", "<space>m", "<cmd>lua vim.lsp.buf.references()<CR>")
 map("n", "<space>s", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
+
+-- trouble.nvim bindings
+map("n", "<leader>xx", "<cmd>TroubleToggle<cr>")
