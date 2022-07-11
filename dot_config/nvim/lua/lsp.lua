@@ -25,3 +25,14 @@ lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_c
 for _, server in ipairs(lsp_installer.get_installed_servers()) do
     lspconfig[server.name].setup({})
 end
+
+-- Add vim to globals to supress annoying warning
+lspconfig.sumneko_lua.setup {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+}
