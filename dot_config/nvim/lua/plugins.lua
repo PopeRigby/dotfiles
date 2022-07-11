@@ -40,44 +40,9 @@ packer.init({
 
 -- Define packages
 return packer.startup(function(use)
-    use({
-        "nvim-lualine/lualine.nvim",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    })
-    use({
-        "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate",
-        branch = "0.5-compat",
-    })
-    use({
-        "nvim-telescope/telescope.nvim",
-        requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
-    })
-    use({
-        "hrsh7th/nvim-cmp",
-        requires = { "hrsh7th/cmp-nvim-lsp" },
-    })
-    use({
-        "numToStr/Comment.nvim",
-        config = function()
-            require("Comment").setup()
-        end,
-    })
-    use({
-        "williamboman/nvim-lsp-installer",
-        {
-            "neovim/nvim-lspconfig",
-            config = function()
-                require("nvim-lsp-installer").setup({
-                    automatic_installation = true,
-                })
-                local lspconfig = require("lspconfig")
-                lspconfig.sumneko_lua.setup({})
-                lspconfig.rust_analyzer.setup({})
-            end,
-        },
-    })
     use("wbthomason/packer.nvim")
+    use("neovim/nvim-lspconfig")
+    use("williamboman/nvim-lsp-installer")
     use("mhartington/formatter.nvim")
     use("Mofiqul/dracula.nvim")
     use("windwp/nvim-autopairs")
@@ -85,7 +50,28 @@ return packer.startup(function(use)
     use("whiteinge/diffconflicts")
     use("stevearc/dressing.nvim")
     use("isobit/vim-caddyfile")
-    use("sar/cmp-buffer.nvim")
+    use({
+        "nvim-lualine/lualine.nvim",
+        requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    })
+    use({
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
+    })
+    use({
+        "nvim-telescope/telescope.nvim",
+        requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
+    })
+    use({
+        "hrsh7th/nvim-cmp",
+        requires = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-path", "hrsh7th/cmp-buffer" },
+    })
+    use({
+        "numToStr/Comment.nvim",
+        config = function()
+            require("Comment").setup()
+        end,
+    })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
