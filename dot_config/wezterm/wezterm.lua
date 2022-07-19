@@ -13,6 +13,10 @@ return {
     enable_tab_bar = true,
     window_background_opacity = 0.9,
     window_close_confirmation = "NeverPrompt",
+    skip_close_confirmation_for_processes_named = {
+        "bash",
+        "fish",
+    },
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
     show_update_window = false,
     window_padding = {
