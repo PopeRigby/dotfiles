@@ -16,6 +16,7 @@ return {
     skip_close_confirmation_for_processes_named = {
         "bash",
         "fish",
+        "chezmoi",
     },
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
     show_update_window = false,
