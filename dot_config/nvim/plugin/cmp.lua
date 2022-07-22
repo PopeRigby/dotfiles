@@ -34,30 +34,32 @@ local kind_icons = {
 local cmp = require("cmp")
 cmp.setup({
     mapping = {
-        ["<Tab>"] = function(fallback)
-            if not cmp.select_next_item() then
-                if vim.bo.buftype ~= "prompt" and has_words_before() then
-                    cmp.complete()
-                else
-                    fallback()
-                end
+        ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif has_words_before() then
+                cmp.complete()
+            else
+                fallback()
             end
-        end,
-        ["<S-Tab>"] = function(fallback)
-            if not cmp.select_prev_item() then
-                if vim.bo.buftype ~= "prompt" and has_words_before() then
-                    cmp.complete()
-                else
-                    fallback()
-                end
+        end, { "i", "s" }),
+
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            else
+                fallback()
             end
-        end,
+        end, { "i", "s" }),
     },
     view = {
         entries = "custom",
     },
     sources = {
-        { name = "nvim_lsp", "buffer", "path" },
+        { name = "nvim_lsp" },
+        { name = "syntax" },
+        { name = "buffer" },
+        { name = "path" },
     },
     formatting = { -- Use pretty icons
         format = function(entry, vim_item)
