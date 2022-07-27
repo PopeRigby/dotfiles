@@ -15,14 +15,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
     vim.cmd([[packadd packer.nvim]])
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
-
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -42,7 +34,6 @@ packer.init({
 return packer.startup(function(use)
     use("wbthomason/packer.nvim")
     use("neovim/nvim-lspconfig")
-    use("williamboman/nvim-lsp-installer")
     use("mhartington/formatter.nvim")
     use("Mofiqul/dracula.nvim")
     use("windwp/nvim-autopairs")
@@ -50,6 +41,9 @@ return packer.startup(function(use)
     use("whiteinge/diffconflicts")
     use("stevearc/dressing.nvim")
     use("isobit/vim-caddyfile")
+    use("peterhoeg/vim-qml")
+    use("williamboman/mason.nvim")
+    use("williamboman/mason-lspconfig.nvim")
     use({
         "nvim-lualine/lualine.nvim",
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -84,6 +78,12 @@ return packer.startup(function(use)
         "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
         config = function()
             require("lsp_lines").setup()
+        end,
+    })
+    use({
+        "kylechui/nvim-surround",
+        config = function()
+            require("nvim-surround").setup()
         end,
     })
 
