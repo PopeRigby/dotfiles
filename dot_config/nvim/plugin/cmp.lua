@@ -89,4 +89,6 @@ cmp.setup({
     experimental = {
         ghost_text = true,
     },
+    -- Don't jump to certain options
+    preselect = cmp.PreselectMode.None,
 })
