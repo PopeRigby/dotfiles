@@ -3,7 +3,7 @@ vim.api.nvim_exec(
     [[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.py,*.pybuild,*.lua,*.rs FormatWrite
+  autocmd BufWritePost *.py,*.pybuild,*.lua,*.rs,*.qml FormatWrite
 augroup END
 ]],
     true
@@ -34,6 +34,15 @@ require("formatter").setup({
                     exe = "stylua",
                     args = { "--indent-type", "Spaces", "-" },
                     stdin = true,
+                }
+            end,
+        },
+        qml = {
+            function()
+                return {
+                    exe = "qmlformat",
+                    args = { "-i" },
+                    stdin = false,
                 }
             end,
         },
