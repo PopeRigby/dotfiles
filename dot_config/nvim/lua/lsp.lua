@@ -10,11 +10,12 @@ end
 
 -- Disable virtual text
 vim.diagnostic.config({
-    virtual_text = false,
+    -- virtual_text = false,
 })
 
 -- Mason setup
 mason.setup({})
+-- lspconfig.qml_lsp.setup()
 
 -- Automatically setup servers installed with nvim-lsp-installer
 require("mason-lspconfig").setup_handlers({

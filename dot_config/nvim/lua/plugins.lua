@@ -33,7 +33,8 @@ packer.init({
 -- Define packages
 return packer.startup(function(use)
     use("wbthomason/packer.nvim")
-    use("neovim/nvim-lspconfig")
+    use("nvim-lua/plenary.nvim")
+    use("poperigby/nvim-lspconfig")
     use("mhartington/formatter.nvim")
     use("Mofiqul/dracula.nvim")
     use("windwp/nvim-autopairs")
@@ -44,6 +45,7 @@ return packer.startup(function(use)
     use("peterhoeg/vim-qml")
     use("williamboman/mason.nvim")
     use("williamboman/mason-lspconfig.nvim")
+    use("jose-elias-alvarez/null-ls.nvim")
     use({
         "nvim-lualine/lualine.nvim",
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -54,7 +56,7 @@ return packer.startup(function(use)
     })
     use({
         "nvim-telescope/telescope.nvim",
-        requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
+        requires = { "nvim-lua/popup.nvim" },
     })
     use({
         "hrsh7th/nvim-cmp",
@@ -66,18 +68,11 @@ return packer.startup(function(use)
             require("Comment").setup()
         end,
     })
-    -- Lua
     use({
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
         config = function()
             require("trouble").setup()
-        end,
-    })
-    use({
-        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-        config = function()
-            require("lsp_lines").setup()
         end,
     })
     use({
