@@ -1,10 +1,10 @@
 -- Friendly mapping function
 local function map(mode, lhs, rhs, opts)
-    local options = { noremap = true }
-    if opts then
-        options = vim.tbl_extend("force", options, opts)
-    end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	local options = { noremap = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- Quick buffer switching
@@ -44,5 +44,9 @@ map("n", "<space>h", "<cmd>lua vim.lsp.buf.hover()<CR>")
 map("n", "<space>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
 map("n", "<space>m", "<cmd>lua vim.lsp.buf.references()<CR>")
 map("n", "<space>s", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
-map("n", "<space>f", ":FormatWrite<CR>")
+map(
+	"n",
+	"<space>f",
+	"<cmd>lua vim.lsp.buf.format({bufnr = bufnr, filter = function(client) return client.name == 'null-ls' end})<CR>"
+)
 map("n", "<space>t", "<cmd>TroubleToggle<cr>")
