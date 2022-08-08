@@ -36,8 +36,8 @@ map("v", "<C-c>", '"+y')
 map("n", "Y", "y$")
 
 -- LSP bindings
-map("n", "<space>,", "<cmd>lua vim.diagnostic.goto_prev({ float = false })<CR>")
-map("n", "<space>;", "<cmd>lua vim.diagnostic.goto_next({ float = false })<CR>")
+map("n", "<space>,", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+map("n", "<space>;", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 map("n", "<space>a", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 map("n", "<space>d", "<cmd>lua vim.lsp.buf.definition()<CR>")
 map("n", "<space>h", "<cmd>lua vim.lsp.buf.hover()<CR>")
