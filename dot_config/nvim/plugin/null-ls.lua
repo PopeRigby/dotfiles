@@ -10,6 +10,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.qmlformat,
 		-- Linters
 		null_ls.builtins.diagnostics.gitlint,
+		-- null_ls.builtins.diagnostics.qmllint,
 	},
 	-- Format on save
 	on_attach = function(client, bufnr)

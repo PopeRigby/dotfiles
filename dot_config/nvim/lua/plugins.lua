@@ -34,7 +34,7 @@ packer.init({
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("nvim-lua/plenary.nvim")
-	use("poperigby/nvim-lspconfig")
+	use("neovim/nvim-lspconfig")
 	use("Mofiqul/dracula.nvim")
 	use("windwp/nvim-autopairs")
 	use("akinsho/toggleterm.nvim")
