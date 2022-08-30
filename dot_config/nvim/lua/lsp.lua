@@ -30,7 +30,7 @@ require("mason-lspconfig").setup_handlers({
 			settings = {
 				Lua = {
 					diagnostics = {
-						globals = { "vim" },
+						globals = { "vim", "minetest" },
 					},
 				},
 			},
@@ -38,4 +38,4 @@ require("mason-lspconfig").setup_handlers({
 	end,
 })
 
-lspconfig.qml_lsp.setup({})
+-- lspconfig.qml_lsp.setup({})
