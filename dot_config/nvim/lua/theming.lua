@@ -1,18 +1,22 @@
-local highlight = function(group, fg, bg, attr, sp)
-    fg = fg and "guifg=" .. fg or "guifg=NONE"
-    bg = bg and "guibg=" .. bg or "guibg=NONE"
-    attr = attr and "gui=" .. attr or "gui=NONE"
-    sp = sp and "guisp=" .. sp or ""
+local dracula = require("dracula")
 
-    vim.api.nvim_command("highlight " .. group .. " " .. fg .. " " .. bg .. " " .. attr .. " " .. sp)
-end
-
-vim.g.dracula_transparent_bg = true
+dracula.setup({
+	transparent_bg = true,
+})
 
 vim.cmd("colorscheme dracula")
 
 -- nvim-cmp
-local colors = require("dracula").colors()
+local colors = dracula.colors()
+
+local highlight = function(group, fg, bg, attr, sp)
+	fg = fg and "guifg=" .. fg or "guifg=NONE"
+	bg = bg and "guibg=" .. bg or "guibg=NONE"
+	attr = attr and "gui=" .. attr or "gui=NONE"
+	sp = sp and "guisp=" .. sp or ""
+
+	vim.api.nvim_command("highlight " .. group .. " " .. fg .. " " .. bg .. " " .. attr .. " " .. sp)
+end
 
 -- gray
 highlight("CmpItemAbbrDeprecated", colors.visual, nil, "strikethrough")
