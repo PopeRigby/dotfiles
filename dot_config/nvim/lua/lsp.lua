@@ -16,7 +16,7 @@ vim.diagnostic.config({
 -- Mason setup
 mason.setup({})
 
--- Automatically setup servers installed with nvim-lsp-installer
+-- Automatically setup servers installed with mason.nvim
 require("mason-lspconfig").setup_handlers({
 	-- The first entry (without a key) will be the default handler
 	-- and will be called for each installed server that doesn't have
