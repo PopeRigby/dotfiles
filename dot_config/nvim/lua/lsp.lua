@@ -1,5 +1,8 @@
 local mason = require("mason")
+local null_ls = require("null-ls")
+local mason_null_ls = require("mason-null-ls")
 local lspconfig = require("lspconfig")
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- Change diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -15,7 +18,6 @@ vim.diagnostic.config({
 
 -- Mason setup
 mason.setup({})
-
 -- Automatically setup servers installed with mason.nvim
 require("mason-lspconfig").setup_handlers({
 	-- The first entry (without a key) will be the default handler
@@ -38,4 +40,33 @@ require("mason-lspconfig").setup_handlers({
 	end,
 })
 
--- lspconfig.qml_lsp.setup({})
+mason_null_ls.setup()
+mason_null_ls.setup_handlers({
+	function(source_name)
+		-- all sources with no handler get passed here
+	end,
+})
+
+null_ls.setup({
+    sources = {
+        null_ls.builtins.formatting.clang_format,
+    },
+	-- Format on save
+	on_attach = function(client, bufnr)
+		if client.supports_method("textDocument/formatting") then
+			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = augroup,
+				buffer = bufnr,
+				callback = function()
+					vim.lsp.buf.format({
+						bufnr = bufnr,
+						filter = function(client)
+							return client.name == "null-ls"
+						end,
+					})
+				end,
+			})
+	    end
+	end,
+})
