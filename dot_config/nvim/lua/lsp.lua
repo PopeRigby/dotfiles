@@ -40,6 +40,13 @@ require("mason-lspconfig").setup_handlers({
 	end,
 })
 
+-- Mason DAP
+-- require("dap").setup()
+require("mason-nvim-dap").setup({
+	automatic_setup = true,
+})
+
+-- Mason null-ls
 mason_null_ls.setup()
 mason_null_ls.setup_handlers({
 	function(source_name)
@@ -48,9 +55,10 @@ mason_null_ls.setup_handlers({
 })
 
 null_ls.setup({
-    sources = {
-        null_ls.builtins.formatting.clang_format,
-    },
+	sources = {
+		null_ls.builtins.formatting.clang_format,
+		null_ls.builtins.formatting.stylua,
+	},
 	-- Format on save
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
@@ -67,6 +75,6 @@ null_ls.setup({
 					})
 				end,
 			})
-	    end
+		end
 	end,
 })

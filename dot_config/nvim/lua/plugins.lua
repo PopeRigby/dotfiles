@@ -44,8 +44,10 @@ return packer.startup(function(use)
 	use("peterhoeg/vim-qml")
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
-	use("jayp0521/mason-null-ls.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
+	use("jayp0521/mason-null-ls.nvim")
+	use("mfussenegger/nvim-dap")
+    	use("jayp0521/mason-nvim-dap.nvim")
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
