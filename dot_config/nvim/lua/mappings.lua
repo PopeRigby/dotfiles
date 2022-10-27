@@ -50,3 +50,4 @@ map(
 	"<cmd>lua vim.lsp.buf.format({bufnr = bufnr, filter = function(client) return client.name == 'null-ls' end})<CR>"
 )
 map("n", "<space>t", "<cmd>TroubleToggle<cr>")
+map("n", "<space>b", "<cmd>lua require('dap').toggle_breakpoint()<CR>")
