@@ -47,7 +47,8 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("jayp0521/mason-null-ls.nvim")
 	use("mfussenegger/nvim-dap")
-    	use("jayp0521/mason-nvim-dap.nvim")
+	use("rcarriga/nvim-dap-ui")
+	use("jayp0521/mason-nvim-dap.nvim")
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
