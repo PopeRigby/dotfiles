@@ -11,11 +11,6 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
--- Disable virtual text
-vim.diagnostic.config({
-	-- virtual_text = false,
-})
-
 -- Mason setup
 mason.setup({})
 -- Automatically setup servers installed with mason.nvim
