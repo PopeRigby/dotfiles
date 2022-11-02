@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    g++ -g *.cpp
+else
+    g++ -g $1
+fi
