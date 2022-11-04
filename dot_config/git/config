@@ -6,8 +6,8 @@
 [alias]
 	yeet = restore .
 	s = status
-	c = checkout
-	cm = checkout main
+	sw = switch
+	m = switch main
 	h = log --graph --oneline
 [diff]
 	tool = nvim
