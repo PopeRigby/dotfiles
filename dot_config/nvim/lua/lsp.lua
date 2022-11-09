@@ -1,6 +1,3 @@
-local mason = require("mason")
-local null_ls = require("null-ls")
-local mason_null_ls = require("mason-null-ls")
 local lspconfig = require("lspconfig")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
@@ -12,13 +9,13 @@ for type, icon in pairs(signs) do
 end
 
 -- Mason setup
-mason.setup({})
+require("mason").setup()
 -- Automatically setup servers installed with mason.nvim
 require("mason-lspconfig").setup_handlers({
 	-- The first entry (without a key) will be the default handler
 	-- and will be called for each installed server that doesn't have
 	-- a dedicated handler.
-	function(server_name) -- default handler (optional)
+    function(server_name) -- default handler (optional)
 		lspconfig[server_name].setup({})
 	end,
 	-- Next, you can provide targeted overrides for specific servers.
@@ -35,25 +32,9 @@ require("mason-lspconfig").setup_handlers({
 	end,
 })
 
--- Mason DAP
--- require("dap").setup()
-require("mason-nvim-dap").setup({
-	automatic_setup = true,
-})
 
--- Mason null-ls
-mason_null_ls.setup()
-mason_null_ls.setup_handlers({
-	function(source_name)
-		-- all sources with no handler get passed here
-	end,
-})
-
-null_ls.setup({
-	sources = {
-		null_ls.builtins.formatting.clang_format,
-		null_ls.builtins.formatting.stylua,
-	},
+-- null-ls
+require("null-ls").setup({
 	-- Format on save
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
@@ -73,6 +54,12 @@ null_ls.setup({
 		end
 	end,
 })
+
+-- Mason null-ls
+require("mason-null-ls").setup({
+	automatic_setup = true,
+})
+-- require("mason-null-ls").setup_handlers()
 
 -- Fix for multiple offset encoding error
 local capabilities = vim.lsp.protocol.make_client_capabilities()
