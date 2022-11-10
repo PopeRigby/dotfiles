@@ -48,12 +48,7 @@ require("mason-lspconfig").setup_handlers({
 })
 
 -- null-ls
-local null_ls = require("null-ls")
-null_ls.setup({
-	sources = {
-		null_ls.builtins.formatting.clang_format,
-		null_ls.builtins.formatting.stylua,
-	},
+require("null-ls").setup({
 	on_attach = on_attach,
 })
 
@@ -61,6 +56,7 @@ null_ls.setup({
 require("mason-null-ls").setup({
 	automatic_setup = true,
 })
+require("mason-null-ls").setup_handlers()
 
 -- Fix for multiple offset encoding error
 local capabilities = vim.lsp.protocol.make_client_capabilities()
