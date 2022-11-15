@@ -9,16 +9,6 @@ end
 
 -- Quick buffer switching
 map("n", "<Leader><Tab>", ":bn<CR>")
-map("n", "<Leader>1", ":1b<CR>")
-map("n", "<Leader>2", ":2b<CR>")
-map("n", "<Leader>3", ":3b<CR>")
-map("n", "<Leader>4", ":4b<CR>")
-map("n", "<Leader>5", ":5b<CR>")
-map("n", "<Leader>6", ":6b<CR>")
-map("n", "<Leader>7", ":7b<CR>")
-map("n", "<Leader>8", ":8b<CR>")
-map("n", "<Leader>9", ":9b<CR>")
-map("n", "<Leader>0", ":10b<CR>")
 
 -- Bind <Esc> to exit insert mode in terminal
 map("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
