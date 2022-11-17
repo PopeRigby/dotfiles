@@ -34,11 +34,11 @@ packer.init({
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("nvim-lua/plenary.nvim")
+	use("nvim-tree/nvim-web-devicons")
 	use("neovim/nvim-lspconfig")
 	use("Mofiqul/dracula.nvim")
 	use("windwp/nvim-autopairs")
 	use("akinsho/toggleterm.nvim")
-	use("whiteinge/diffconflicts")
 	use("stevearc/dressing.nvim")
 	use("isobit/vim-caddyfile")
 	use("peterhoeg/vim-qml")
@@ -46,10 +46,7 @@ return packer.startup(function(use)
 	use("williamboman/mason-lspconfig.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("jayp0521/mason-null-ls.nvim")
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "nvim-tree/nvim-web-devicons", opt = true },
-	})
+	use("nvim-lualine/lualine.nvim")
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
@@ -70,7 +67,6 @@ return packer.startup(function(use)
 	})
 	use({
 		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
 		config = function()
 			require("trouble").setup()
 		end,
