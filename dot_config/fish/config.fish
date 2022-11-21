@@ -13,5 +13,5 @@ set -g fish_greeting
 
 # Set Neovim as man pager, if available
 if type -q nvim
-    set -x MANPAGER "$(which nvim) --remote -c 'Man!' -o -"
+    set -x MANPAGER "$(which nvim) -c 'Man!' -o -"
 end
