@@ -47,6 +47,9 @@ end
 cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}") -- Highlight text briefly after yank
 cmd("au BufWritePost ~/.local/share/chezmoi/* silent ! chezmoi apply --source-path %") -- Automatically run `chezmoi apply` on save
 
+-- Built-in plugins
+cmd.packadd("termdebug")
+
 -- Disable built-in plugins
 local disabled_built_ins = {
 	"netrw",
