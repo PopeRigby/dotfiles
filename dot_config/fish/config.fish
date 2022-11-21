@@ -16,3 +16,8 @@ end
 
 set -gx QT_QPA_PLATFORMTHEME kde
 set -g fish_greeting
+
+# Set Neovim as man pager, if available
+if type -q nvim
+    set -x MANPAGER "$(which nvim) --remote -c 'Man!' -o -"
+end
