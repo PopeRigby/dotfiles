@@ -25,6 +25,12 @@ map("v", "<C-c>", '"+y')
 -- Yank until end of line
 map("n", "Y", "y$")
 
+-- Termdebug
+map("n", "<Leader>b", ":Break<CR>")
+map("n", "<Leader>r", ":Run<CR>")
+map("n", "<Leader>n", ":Over<CR>")
+map("n", "<Leader>s", ":Step<CR>")
+
 -- LSP bindings
 map("n", "<space>,", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
 map("n", "<space>;", "<cmd>lua vim.diagnostic.goto_next()<CR>")
@@ -40,4 +46,3 @@ map(
 	"<cmd>lua vim.lsp.buf.format({bufnr = bufnr, filter = function(client) return client.name == 'null-ls' end})<CR>"
 )
 map("n", "<space>t", "<cmd>TroubleToggle<cr>")
-map("n", "<space>b", "<cmd>lua require('dap').toggle_breakpoint()<CR>")
