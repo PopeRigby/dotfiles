@@ -1,5 +1,4 @@
 local dracula = require("dracula")
-local
 
 dracula.setup({
 	transparent_bg = true,
