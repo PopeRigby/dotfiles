@@ -77,6 +77,12 @@ return packer.startup(function(use)
 			require("nvim-surround").setup()
 		end,
 	})
+	use({
+		"nvim-zh/colorful-winsep.nvim",
+		config = function()
+			require("colorful-winsep").setup()
+		end,
+	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
