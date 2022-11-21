@@ -1,5 +1,4 @@
 local cmd = vim.cmd
-local var = vim.g
 
 -- Miscellaneous options
 local options = {
@@ -34,8 +33,15 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
--- Variables
-var.mapleader = ";"
+-- Global variables
+local globals = {
+	mapleader = ";",
+	termdebug_wide = 1, -- For termdebug, orient file pane vertically
+}
+
+for k, v in pairs(globals) do
+	vim.g[k] = v
+end
 
 -- Autocommands
 cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}") -- Highlight text briefly after yank
