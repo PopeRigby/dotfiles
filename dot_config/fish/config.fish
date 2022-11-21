@@ -8,13 +8,7 @@ for flatpakdir in ~/.local/share/flatpak/exports/bin /var/lib/flatpak/exports/bi
     end
 end
 
-# If running from tty1 start sway
-set TTY1 (tty)
-if test -z "$DISPLAY"; and test $TTY1 = "/dev/tty1"
-  exec sway
-end
-
-set -gx QT_QPA_PLATFORMTHEME kde
+# Disable fish greeting
 set -g fish_greeting
 
 # Set Neovim as man pager, if available
