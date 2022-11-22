@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, { -- Highlight text briefly afte
 	end,
 })
 vim.api.nvim_create_autocmd({ "BufWritePost" }, { -- Automatically run `chezmoi apply` on save
-	pattern = "*",
+	pattern = "~/local/share/chezmoi/*",
 	callback = function()
 		io.popen("chezmoi apply --source-path %")
 	end,
