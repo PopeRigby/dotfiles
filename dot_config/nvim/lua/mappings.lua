@@ -26,23 +26,23 @@ map("v", "<C-c>", '"+y')
 map("n", "Y", "y$")
 
 -- Termdebug
-map("n", "<Leader>b", ":Break<CR>")
-map("n", "<Leader>r", ":Run<CR>")
-map("n", "<Leader>n", ":Over<CR>")
-map("n", "<Leader>s", ":Step<CR>")
+map("n", "<Leader>db", ":Break<CR>")
+map("n", "<Leader>dr", ":Run<CR>")
+map("n", "<Leader>dn", ":Over<CR>")
+map("n", "<Leader>ds", ":Step<CR>")
 
 -- LSP bindings
-map("n", "<space>,", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
-map("n", "<space>;", "<cmd>lua vim.diagnostic.goto_next()<CR>")
-map("n", "<space>a", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-map("n", "<space>d", "<cmd>lua vim.lsp.buf.definition()<CR>")
-map("n", "<space>h", "<cmd>lua vim.lsp.buf.hover()<CR>")
-map("n", "<space>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
-map("n", "<space>m", "<cmd>lua vim.lsp.buf.references()<CR>")
-map("n", "<space>s", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
-map(
-	"n",
-	"<space>f",
-	"<cmd>lua vim.lsp.buf.format({bufnr = bufnr, filter = function(client) return client.name == 'null-ls' end})<CR>"
-)
-map("n", "<space>t", "<cmd>TroubleToggle<cr>")
+map("n", "<Space>,", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+map("n", "<Space>;", "<cmd>lua vim.diagnostic.goto_next()<CR>")
+map("n", "<Space>a", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+map("n", "<Space>d", "<cmd>lua vim.lsp.buf.definition()<CR>")
+map("n", "<Space>h", "<cmd>lua vim.lsp.buf.hover()<CR>")
+map("n", "<Space>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
+map("n", "<Space>m", "<cmd>lua vim.lsp.buf.references()<CR>")
+map("n", "<Space>s", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
+map("n", "<Space>t", "<cmd>TroubleToggle<cr>")
+
+-- Telescope bindings
+map("n", "<Leader>t", ":Telescope <CR>")
+map("n", "<Leader>f", '<cmd>lua require("telescope.builtin").file_browser()<cr>')
+map("n", "<Leader>b", '<cmd>lua require("telescope.builtin").buffers()<cr>')
