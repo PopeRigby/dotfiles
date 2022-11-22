@@ -1,13 +1,14 @@
 local cmd = vim.cmd
+local autocmd = vim.api.nvim_create_autocmd
 
 -- Misc autocommands
-vim.api.nvim_create_autocmd({ "TextYankPost" }, { -- Highlight text briefly after yank
+autocmd({ "TextYankPost" }, { -- Highlight text briefly after yank
 	pattern = "*",
 	callback = function()
 		vim.highlight.on_yank({ on_visual = false })
 	end,
 })
-vim.api.nvim_create_autocmd({ "BufWritePost" }, { -- Automatically run `chezmoi apply` on save
+autocmd({ "BufWritePost" }, { -- Automatically run `chezmoi apply` on save
 	pattern = "~/local/share/chezmoi/*",
 	callback = function()
 		io.popen("chezmoi apply --source-path %")
@@ -15,11 +16,20 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, { -- Automatically run `chezmoi 
 })
 
 -- Filetype detection
-cmd("au! BufRead,BufNewFile *.pmodule set filetype=python")
-cmd("au! BufRead,BufNewFile *.pybuild set filetype=python")
-cmd("au! BufRead,BufNewFile *.settings set filetype=dosini")
+local function detect_filetype(extension, filetype)
+	autocmd({ "BufRead", "BufNewFile" }, {
+		pattern = "*." .. extension,
+		callback = function()
+			vim.bo.filetype = filetype
+		end,
+	})
+end
 
--- Built-in plugins
+detect_filetype("pmodule", "python")
+detect_filetype("pybuild", "python")
+detect_filetype("settings", "dosini")
+
+-- Enable built-in plugins
 cmd.packadd("termdebug")
 
 -- Disable built-in plugins
