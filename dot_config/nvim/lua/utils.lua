@@ -1,8 +1,18 @@
 local cmd = vim.cmd
 
--- Autocommands
-cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}") -- Highlight text briefly after yank
-cmd("au BufWritePost ~/.local/share/chezmoi/* silent ! chezmoi apply --source-path %") -- Automatically run `chezmoi apply` on save
+-- Misc autocommands
+vim.api.nvim_create_autocmd({ "TextYankPost" }, { -- Highlight text briefly after yank
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({ on_visual = false })
+	end,
+})
+vim.api.nvim_create_autocmd({ "BufWritePost" }, { -- Automatically run `chezmoi apply` on save
+	pattern = "*",
+	callback = function()
+		io.popen("chezmoi apply --source-path %")
+	end,
+})
 
 -- Filetype detection
 cmd("au! BufRead,BufNewFile *.pmodule set filetype=python")
