@@ -83,6 +83,10 @@ return packer.startup(function(use)
 			require("colorful-winsep").setup()
 		end,
 	})
+	use({
+		"goolord/alpha-nvim",
+		requires = { "nvim-tree/nvim-web-devicons" },
+	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
