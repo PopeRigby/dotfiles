@@ -1,4 +1,3 @@
-local cmd = vim.cmd
 local autocmd = vim.api.nvim_create_autocmd
 
 -- Misc autocommands
@@ -30,7 +29,10 @@ detect_filetype("pybuild", "python")
 detect_filetype("settings", "dosini")
 
 -- Enable built-in plugins
-cmd.packadd("termdebug")
+vim.cmd.packadd("termdebug")
+
+-- Disable 'How-to disable mouse submenu'
+vim.cmd.unmenu([[PopUp.How-to\ disable\ mouse]])
 
 -- Disable built-in plugins
 local disabled_built_ins = {
