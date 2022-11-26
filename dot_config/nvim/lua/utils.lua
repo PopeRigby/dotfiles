@@ -11,7 +11,7 @@ autocmd({ "TextYankPost" }, { -- Highlight text briefly after yank
 autocmd({ "BufWritePost" }, { -- Automatically run `chezmoi apply` on save
 	pattern = "~/local/share/chezmoi/*",
 	callback = function()
-		io.popen("chezmoi apply --source-path %")
+		io.popen("chezmoi apply")
 	end,
 })
 
