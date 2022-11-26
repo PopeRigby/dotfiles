@@ -29,11 +29,16 @@ map("n", "<Space>,", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
 map("n", "<Space>;", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 map("n", "<Space>a", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 map("n", "<Space>d", "<cmd>lua vim.lsp.buf.definition()<CR>")
-map("n", "<Space>h", "<cmd>lua vim.lsp.buf.hover()<CR>")
 map("n", "<Space>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
 map("n", "<Space>m", "<cmd>lua vim.lsp.buf.references()<CR>")
 map("n", "<Space>s", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
 map("n", "<Space>t", "<cmd>TroubleToggle<cr>")
+map("n", "<Space>h", function()
+	local winid = require("ufo").peekFoldedLinesUnderCursor()
+	if not winid then
+		vim.lsp.buf.hover()
+	end
+end)
 
 -- Telescope bindings
 map("n", "<Leader>t", ":Telescope <CR>")
