@@ -17,14 +17,14 @@ local options = {
 	autoindent = true, -- Copy indent from current line when starting a new line
 	smartindent = true, -- Do smart autoindenting when starting a new line
 	scrolloff = 2, -- Lines of context
-	lazyredraw = true, -- Don't redraw screen when running macros/regex on large files
 	hidden = true, -- Don't abandon hidden buffers
-	foldmethod = "expr",
-	foldexpr = "nvim_treesitter#foldexpr()", -- Use TreeSitter for folds
-	foldlevelstart = 99,
-	conceallevel = 2,
 	laststatus = 2, -- Enable global statusline
 	cmdheight = 0, -- Shrink cmd area when not in use
+	foldcolumn = "0",
+	foldlevel = 99,
+	foldlevelstart = 99,
+	foldenable = true,
+	conceallevel = 2,
 }
 
 for k, v in pairs(options) do
