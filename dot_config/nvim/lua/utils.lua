@@ -8,7 +8,7 @@ autocmd({ "TextYankPost" }, { -- Highlight text briefly after yank
 	end,
 })
 autocmd({ "BufWritePost" }, { -- Automatically run `chezmoi apply` on save
-	pattern = "~/local/share/chezmoi/*",
+	pattern = vim.fn.expand("$HOME") .. "/.local/share/chezmoi/*",
 	callback = function()
 		io.popen("chezmoi apply")
 	end,
