@@ -88,6 +88,13 @@ return packer.startup(function(use)
 		requires = { "nvim-tree/nvim-web-devicons" },
 	})
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
+	use({
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("todo-comments").setup()
+		end,
+	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
