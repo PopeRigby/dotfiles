@@ -18,8 +18,9 @@ dashboard.section.buttons.val = {
 	dashboard.button("n", "  New file", ":ene <BAR> startinsert <CR>"),
 	dashboard.button("f", "  Find file", ":cd $HOME/Projects | Telescope find_files<CR>"),
 	dashboard.button("r", "  Recent files", ":Telescope oldfiles<CR>"),
-	dashboard.button("u", "  Update plugins", ":PackerSync<CR>"),
 	dashboard.button("h", "ﬤ  Help", ":Telescope help_tags<CR>"),
+	dashboard.button("u", "  Update plugins", ":PackerSync<CR>"),
+	dashboard.button("c", "  Check health", ":checkhealth<CR>"),
 	dashboard.button("q", "  Quit NVIM", ":qa<CR>"),
 }
 
