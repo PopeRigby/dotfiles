@@ -42,5 +42,5 @@ end)
 
 -- Telescope bindings
 map("n", "<Leader>t", ":Telescope <CR>")
-map("n", "<Leader>f", '<cmd>lua require("telescope.builtin").file_browser()<cr>')
-map("n", "<Leader>b", '<cmd>lua require("telescope.builtin").buffers()<cr>')
+map("n", "<Leader>e", require("telescope.builtin").find_files)
+map("n", "<Leader>b", require("telescope.builtin").buffers)
