@@ -1,19 +1,19 @@
 local map = vim.keymap.set
 
--- Quick buffer switching
-map("n", "<Leader><Tab>", ":bn<CR>")
+-- Yank to system regular clipboard
+map("v", "<C-c>", '"+y')
 
 -- Bind <Esc> to exit insert mode in terminal
 map("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
+
+-- Quick buffer switching
+map("n", "<Leader><Tab>", ":bn<CR>")
 
 -- Toggle line numbers on/off
 map("n", "<Leader>N", ":set invnumber<CR>")
 
 -- Preview html file in firefox
 map("n", "<Leader>p", ":silent update<Bar>silent !firefox %:p &<CR>")
-
--- Yank to system regular clipboard
-map("v", "<C-c>", '"+y')
 
 -- Yank until end of line
 map("n", "Y", "y$")
