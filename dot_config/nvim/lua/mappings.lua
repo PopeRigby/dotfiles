@@ -10,7 +10,7 @@ map("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 map("n", "<Leader>N", ":set invnumber<CR>")
 
 -- Preview html file in firefox
-map("n", "<Leader>p", ":silent update<Bar>silent !firefox -P Preview %:p &<CR>")
+map("n", "<Leader>p", ":silent update<Bar>silent !firefox %:p &<CR>")
 
 -- Yank to system regular clipboard
 map("v", "<C-c>", '"+y')
