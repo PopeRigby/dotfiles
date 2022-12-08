@@ -24,7 +24,7 @@ local on_attach =
 	end,
 	
 	-- Mason
-require("mason").setup({})
+require("mason").setup()
 -- Automatically setup servers installed with mason.nvim
 require("mason-lspconfig").setup_handlers({
 	-- Default handler
@@ -43,6 +43,16 @@ require("mason-lspconfig").setup_handlers({
 					},
 				},
 			},
+			on_attach = on_attach,
+		})
+	end,
+	-- Fix for multiple offset encoding error
+	["clangd"] = function()
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities.offsetEncoding = { "utf-16" }
+		lspconfig.clangd.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
 		})
 	end,
 })
@@ -57,8 +67,3 @@ require("mason-null-ls").setup({
 	automatic_setup = true,
 })
 require("mason-null-ls").setup_handlers()
-
--- Fix for multiple offset encoding error
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.offsetEncoding = { "utf-16" }
-lspconfig.clangd.setup({ capabilities = capabilities })
