@@ -25,15 +25,16 @@ map("n", "<Leader>dn", ":Over<CR>")
 map("n", "<Leader>ds", ":Step<CR>")
 
 -- LSP bindings
-map("n", "<Space>,", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
-map("n", "<Space>;", "<cmd>lua vim.diagnostic.goto_next()<CR>")
-map("n", "<Space>a", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-map("n", "<Space>d", "<cmd>lua vim.lsp.buf.definition()<CR>")
-map("n", "<Space>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
-map("n", "<Space>m", "<cmd>lua vim.lsp.buf.references()<CR>")
-map("n", "<Space>s", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
+map("n", "<Space>,", vim.diagnostic.goto_prev)
+map("n", "<Space>;", vim.diagnostic.goto_next)
+map("n", "<Space>a", vim.lsp.buf.code_action)
+map("n", "<Space>d", vim.lsp.buf.definition)
+map("n", "<Space>r", vim.lsp.buf.rename)
+map("n", "<Space>m", vim.lsp.buf.references)
+map("n", "<Space>s", vim.lsp.buf.document_symbol)
 map("n", "<Space>t", "<cmd>TroubleToggle<cr>")
 map("n", "<Space>h", function()
+	-- Either preview fold, or LSP hover
 	local winid = require("ufo").peekFoldedLinesUnderCursor()
 	if not winid then
 		vim.lsp.buf.hover()
