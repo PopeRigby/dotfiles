@@ -1,6 +1,6 @@
-require "plugins"
-require "lsp"
-require "utils"
-require "options"
-require "mappings"
-require "theming"
+require("plugins")
+require("lsp")
+require("utils")
+require("options")
+require("mappings")
+require("theming")
