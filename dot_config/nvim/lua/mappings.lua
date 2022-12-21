@@ -18,11 +18,29 @@ map("n", "<Leader>p", ":silent update<Bar>silent !firefox %:p &<CR>")
 -- Yank until end of line
 map("n", "Y", "y$")
 
--- Termdebug
-map("n", "<Leader>db", ":Break<CR>")
-map("n", "<Leader>dr", ":Run<CR>")
-map("n", "<Leader>dn", ":Over<CR>")
-map("n", "<Leader>ds", ":Step<CR>")
+-- DAP Bindings
+local dap = require("dap")
+local dapui = require("dapui")
+map("n", "<Leader>ds", function()
+	dapui.toggle({})
+	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>=", false, true, true), "n", false) -- Spaces buffers evenly
+end)
+map("n", "<Leader>dl", require("dap.ui.widgets").hover)
+map("n", "<Leader>dc", dap.continue)
+map("n", "<Leader>db", dap.toggle_breakpoint)
+map("n", "<Leader>dn", dap.step_over)
+map("n", "<Leader>di", dap.step_into)
+map("n", "<Leader>do", dap.step_out)
+map("n", "<Leader>dC", function()
+	dap.clear_breakpoints()
+	require("notify")("Breakpoints cleared", "warn")
+end)
+map("n", "<Leader>de", function()
+	dap.clear_breakpoints()
+	dapui.toggle({})
+	dap.terminate()
+	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>=", false, true, true), "n", false)
+end)
 
 -- LSP bindings
 map("n", "<Space>,", vim.diagnostic.goto_prev)
