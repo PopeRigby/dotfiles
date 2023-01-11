@@ -11,7 +11,17 @@ end
 # Disable fish greeting
 set -g fish_greeting
 
-# Set Neovim as man pager, if available
+# Set Neovim as man pager, if available, and alias it to "vim"
 if type -q nvim
     set -x MANPAGER "$(which nvim) -c 'Man!' -o -"
+    alias vim "nvim"
+end
+
+# Set aliases if programs are present
+if type -q exa
+    alias ls "exa"
+end
+
+if type -q bat
+    alias cat "bat"
 end
