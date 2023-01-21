@@ -1,9 +1,0 @@
-{{ if eq .chezmoi.osRelease.id "arch" -}}
-#!/bin/sh
-sudo /usr/bin/pacman -S bat
-sudo /usr/bin/pacman -S fish
-sudo /usr/bin/pacman -S git
-sudo /usr/bin/pacman -S neovim
-sudo /usr/bin/pacman -S exa
-
-{{ end -}}
