@@ -40,15 +40,5 @@ return {
 		{ key = "8", mods = "ALT", action = wezterm.action({ ActivateTab = 7 }) },
 		{ key = "9", mods = "ALT", action = wezterm.action({ ActivateTab = 8 }) },
 	},
-	colors = {
-		foreground = "#f8f8f2",
-		background = "#1e1f29",
-		cursor_bg = "#eceff4",
-		cursor_border = "#eceff4",
-		cursor_fg = "#282828",
-		selection_bg = "#f8f8f2",
-		selection_fg = "#545454",
-		ansi = { "#000000", "#ff5555", "#50fa7b", "#f1fa8c", "#bd93f9", "#ff79c6", "#8be9fd", "#bbbbbb" },
-		brights = { "#555555", "#ff5555", "#50fa7b", "#f1fa8c", "#bd93f9", "#ff79c6", "#8be9fd", "#ffffff" },
-	},
+    color_scheme = "Gruvbox dark, soft (base16)"
 }

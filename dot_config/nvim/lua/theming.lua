@@ -1,10 +1,7 @@
-local dracula = require("dracula")
+vim.o.background = "dark"
 
-dracula.setup({
-	transparent_bg = true,
-	overrides = {
-		VertSplit = { fg = dracula.colors().selection },
-	},
+require("gruvbox").setup({
+    transparent_mode = true,
 })
 
-vim.cmd("colorscheme dracula")
+vim.cmd("colorscheme gruvbox")
