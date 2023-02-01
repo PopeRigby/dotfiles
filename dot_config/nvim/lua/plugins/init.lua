@@ -2,7 +2,6 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
     "neovim/nvim-lspconfig",
-    "ellisonleao/gruvbox.nvim",
     "stevearc/dressing.nvim",
     "isobit/vim-caddyfile",
     "peterhoeg/vim-qml",
