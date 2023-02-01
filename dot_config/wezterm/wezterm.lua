@@ -40,5 +40,6 @@ return {
 		{ key = "8", mods = "ALT", action = wezterm.action({ ActivateTab = 7 }) },
 		{ key = "9", mods = "ALT", action = wezterm.action({ ActivateTab = 8 }) },
 	},
-    color_scheme = "Gruvbox dark, soft (base16)"
+	color_scheme = "Gruvbox dark, soft (base16)",
+	-- exec_domains = require("distrobox-exec-domain").exec_domains
 }
