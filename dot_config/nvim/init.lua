@@ -1,4 +1,4 @@
-require("plugins")
+require("lazy_config")
 require("lsp")
 require("utils")
 require("options")
