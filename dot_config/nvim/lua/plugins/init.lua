@@ -3,8 +3,6 @@ return {
     "nvim-tree/nvim-web-devicons",
     "neovim/nvim-lspconfig",
     "stevearc/dressing.nvim",
-    "isobit/vim-caddyfile",
-    "peterhoeg/vim-qml",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "jose-elias-alvarez/null-ls.nvim",
