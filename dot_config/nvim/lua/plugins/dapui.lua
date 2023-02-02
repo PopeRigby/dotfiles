@@ -1,5 +1,6 @@
 return {
     "rcarriga/nvim-dap-ui",
+    lazy = true,
     config = function()
         require("dapui").setup({
             icons = { expanded = "▾", collapsed = "▸" },
