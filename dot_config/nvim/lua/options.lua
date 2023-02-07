@@ -32,10 +32,7 @@ for k, v in pairs(options) do
 end
 
 -- Global variables
-local globals = {
-    mapleader = ";",
-    termdebug_wide = 1, -- For termdebug, orient file pane vertically
-}
+local globals = {}
 
 for k, v in pairs(globals) do
     vim.g[k] = v

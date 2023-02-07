@@ -2,7 +2,7 @@ return {
     "folke/trouble.nvim",
     keys = {
         {
-            "<Leader>t",
+            "<Leader>r",
             ":TroubleToggle <CR>",
             desc = "Toggle trouble"
         },

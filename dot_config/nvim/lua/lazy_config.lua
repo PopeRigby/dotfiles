@@ -12,5 +12,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Set leader key
+vim.g.mapleader = ";"
+
 -- Define packages
 require("lazy").setup("plugins")
