@@ -8,7 +8,5 @@ return {
         },
     },
     cmd = { "Trouble", "TroubleToggle" },
-    config = function()
-        require("trouble").setup()
-    end,
+    config = true
 }
