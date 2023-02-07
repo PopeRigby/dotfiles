@@ -20,11 +20,6 @@ map("n", "Y", "y$")
 
 -- DAP Bindings
 local dap = require("dap")
-local dapui = require("dapui")
-map("n", "<Leader>ds", function()
-	dapui.toggle({})
-	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>=", false, true, true), "n", false) -- Spaces buffers evenly
-end)
 map("n", "<Leader>dl", require("dap.ui.widgets").hover)
 map("n", "<Leader>dc", dap.continue)
 map("n", "<Leader>db", dap.toggle_breakpoint)
@@ -32,14 +27,12 @@ map("n", "<Leader>dn", dap.step_over)
 map("n", "<Leader>di", dap.step_into)
 map("n", "<Leader>do", dap.step_out)
 map("n", "<Leader>dC", function()
-	dap.clear_breakpoints()
-	require("notify")("Breakpoints cleared", "warn")
+    dap.clear_breakpoints()
+    require("notify")("Breakpoints cleared", "warn")
 end)
 map("n", "<Leader>de", function()
-	dap.clear_breakpoints()
-	dapui.toggle({})
-	dap.terminate()
-	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>=", false, true, true), "n", false)
+    dap.clear_breakpoints()
+    dap.terminate()
 end)
 
 -- LSP bindings
@@ -52,11 +45,11 @@ map("n", "<Space>m", vim.lsp.buf.references)
 map("n", "<Space>s", vim.lsp.buf.document_symbol)
 map("n", "<Space>t", "<cmd>TroubleToggle<cr>")
 map("n", "<Space>h", function()
-	-- Either preview fold, or LSP hover
-	local winid = require("ufo").peekFoldedLinesUnderCursor()
-	if not winid then
-		vim.lsp.buf.hover()
-	end
+    -- Either preview fold, or LSP hover
+    local winid = require("ufo").peekFoldedLinesUnderCursor()
+    if not winid then
+        vim.lsp.buf.hover()
+    end
 end)
 
 -- Telescope bindings
