@@ -51,8 +51,3 @@ map("n", "<Space>h", function()
         vim.lsp.buf.hover()
     end
 end)
-
--- Telescope bindings
-map("n", "<Leader>t", ":Telescope <CR>")
-map("n", "<Leader>e", require("telescope.builtin").find_files)
-map("n", "<Leader>b", require("telescope.builtin").buffers)
