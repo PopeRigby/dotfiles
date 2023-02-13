@@ -43,10 +43,4 @@ map("n", "<Space>d", vim.lsp.buf.definition)
 map("n", "<Space>r", vim.lsp.buf.rename)
 map("n", "<Space>m", vim.lsp.buf.references)
 map("n", "<Space>s", vim.lsp.buf.document_symbol)
-map("n", "<Space>h", function()
-    -- Either preview fold, or LSP hover
-    local winid = require("ufo").peekFoldedLinesUnderCursor()
-    if not winid then
-        vim.lsp.buf.hover()
-    end
-end)
+map("n", "<Space>h", vim.lsp.buf.hover)
