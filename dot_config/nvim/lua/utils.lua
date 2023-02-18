@@ -31,9 +31,6 @@ detect_filetype("settings", "dosini")
 -- Enable built-in plugins
 vim.cmd.packadd("termdebug")
 
--- Disable 'How-to disable mouse submenu'
-vim.cmd.unmenu([[PopUp.How-to\ disable\ mouse]])
-
 -- Disable built-in plugins
 local disabled_built_ins = {
     "netrw",

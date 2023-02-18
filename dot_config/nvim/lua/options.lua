@@ -25,6 +25,7 @@ local options = {
     foldlevelstart = 99,
     foldenable = true,
     conceallevel = 2,
+    mouse = "",
 }
 
 for k, v in pairs(options) do
