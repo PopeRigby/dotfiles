@@ -1,6 +1,7 @@
 [user]
 	name = Pope_Rigby
 	email = poperigby@mailbox.org
+	signingkey = 697A8ADE6068CB54
 [core]
 	editor = nvim
 [alias]
@@ -41,3 +42,5 @@
 	default = current
 [safe]
 	directory = /home/cassidy/.local/share/package-list
+[commit]
+	gpgsign = true
