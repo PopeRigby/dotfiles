@@ -2,7 +2,7 @@
 local options = {
     completeopt = { "menuone", "noinsert", "noselect" }, -- Set completeopt to have a better completion experience
     undofile = true, -- Enable persistent undo
-    signcolumn = "yes",
+    signcolumn = "yes", -- Always show gutter
     expandtab = true, -- Use spaces instead of tabs
     tabstop = 4, -- Number of spaces tabs count for
     shiftwidth = 4, -- Size of an indent
@@ -20,12 +20,7 @@ local options = {
     hidden = true, -- Don't abandon hidden buffers
     laststatus = 2, -- Enable global statusline
     cmdheight = 0, -- Shrink cmd area when not in use
-    foldcolumn = "0",
-    foldlevel = 99,
-    foldlevelstart = 99,
-    foldenable = true,
-    conceallevel = 2,
-    mouse = "",
+    mouse = "", -- Disable mouse
 }
 
 for k, v in pairs(options) do

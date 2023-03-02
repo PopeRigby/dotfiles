@@ -19,5 +19,10 @@ return {
                 return { 'treesitter', 'indent' }
             end
         })
+        vim.opt.foldcolumn = "0"
+        vim.opt.foldlevel = 99
+        vim.opt.foldlevelstart = 99
+        vim.opt.foldenable = true
+        vim.opt.conceallevel = 2
     end,
 }
