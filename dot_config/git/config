@@ -43,4 +43,4 @@
 [safe]
 	directory = /home/cassidy/.local/share/package-list
 [commit]
-	gpgsign = true
+	gpgsign = false
