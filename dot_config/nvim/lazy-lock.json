@@ -32,5 +32,6 @@
   "toggleterm.nvim": { "branch": "main", "commit": "9a595ba699837c4333c4296634feed320f084df2" },
   "trouble.nvim": { "branch": "main", "commit": "67337644e38144b444d026b0df2dc5fa0038930f" },
   "vim-caddyfile": { "branch": "master", "commit": "24fe0720551883e407cb70ae1d7c03f162d1d5a0" },
-  "vim-qml": { "branch": "master", "commit": "92cd291bc3d59126ef771dfaad5f2506636104c7" }
+  "vim-qml": { "branch": "master", "commit": "92cd291bc3d59126ef771dfaad5f2506636104c7" },
+  "which-key.nvim": { "branch": "main", "commit": "fb027738340502b556c3f43051f113bcaa7e8e63" }
 }
