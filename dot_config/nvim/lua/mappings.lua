@@ -7,13 +7,13 @@ map("v", "<C-c>", '"+y')
 map("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
 -- Quick buffer switching
-map("n", "<Leader><Tab>", ":bn<CR>")
+map("n", "<Leader><Tab>", ":bn<CR>", { desc = "Move to next buffer" })
 
 -- Toggle line numbers on/off
-map("n", "<Leader>N", ":set invnumber<CR>")
+map("n", "<Leader>N", ":set invnumber<CR>", { desc = "Toggle line numbers" })
 
 -- Preview html file in firefox
-map("n", "<Leader>p", ":silent update<Bar>silent !firefox %:p &<CR>")
+map("n", "<Leader>p", ":silent update<Bar>silent !firefox %:p &<CR>", { desc = "Preview HTML file in Firefox" })
 
 -- Yank until end of line
 map("n", "Y", "y$")
