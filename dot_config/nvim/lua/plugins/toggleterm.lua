@@ -6,6 +6,14 @@ return {
         size = 20,
         shade_terminals = true,
         start_in_insert = true,
-        insert_mappings = true -- whether or not the open mapping applies in insert mode
+        insert_mappings = true, -- whether or not the open mapping applies in insert mode
+        direction = 'float',
+    },
+    keys = {
+        {
+            "<Leader>g",
+            ":TermExec cmd='command lazygit'<CR>",
+            desc = "Open LazyGit in a terminal"
+        }
     }
 }

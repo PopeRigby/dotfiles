@@ -74,7 +74,7 @@ require("mason-nvim-dap").setup({
 require("mason-nvim-dap").setup_handlers()
 
 -- Language servers not handled by Mason
-require("lspconfig").qmlls.setup({
-    cmd = { "qmlls6" },
-    filetypes = { "qml" }
-})
+-- require("lspconfig").qmlls.setup({
+--     cmd = { "qmlls6" },
+--     filetypes = { "qml" }
+-- })
