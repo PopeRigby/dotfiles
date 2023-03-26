@@ -11,30 +11,41 @@ $git_branch\
 $git_commit\
 $git_state\
 $git_status\
-$docker_context\
-$custom\
 $jobs\
 $status\
-$character"""
+$character
+"""
+
+right_format = """
+$python\
+$container
+"""
 
 [directory]
-format = "[$path]($style) [$read_only]($read_only_style)"
-style = "blue"
-read_only = "🔒"
+fish_style_pwd_dir_length = 3
+truncation_length = 3
+style = "cyan"
 
 [character]
-success_symbol = "[\\$](yellow)"
-error_symbol = "[\\$](red)"
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
 
 [git_branch]
 format = "[$symbol$branch]($style) "
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style) )'
-style = "#ffb86c"
+style = "yellow"
 stashed = "*"
 
 [status]
-style = "red"
 format = '[\[$status\]]($style) '
+style = "red"
 disabled = true
+
+[python]
+format = '$virtualenv($style)'
+
+[container]
+format = '[$symbol $name]($style) '
+style = "purple"
