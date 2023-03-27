@@ -15,8 +15,12 @@ map("n", "<Leader>N", ":set invnumber<CR>", { desc = "Toggle line numbers" })
 -- Preview html file in firefox
 map("n", "<Leader>p", ":silent update<Bar>silent !firefox %:p &<CR>", { desc = "Preview HTML file in Firefox" })
 
--- Yank until end of line
-map("n", "Y", "y$")
+-- Yank to the end of line
+map("n", "Y", "y$", {desc="Yank to the end of the line"})
+
+-- Replace spaces with underscores in selection
+map("v", "<Leader>u", ":s/\\%V /_/g<CR>", {desc="Replace spaces with underscores in selection"})
+
 
 -- DAP Bindings
 local dap = require("dap")
