@@ -34,18 +34,18 @@ require("mason-lspconfig").setup_handlers({
         })
     end,
     -- Targetted overrides for specific servers
-    ["sumneko_lua"] = function()
-        lspconfig.sumneko_lua.setup({
-            settings = {
-                Lua = {
-                    diagnostics = {
-                        globals = { "vim", "minetest" },
-                    },
-                },
-            },
-            on_attach = on_attach,
-        })
-    end,
+    -- ["sumneko_lua"] = function()
+    --     lspconfig.sumneko_lua.setup({
+    --         settings = {
+    --             Lua = {
+    --                 diagnostics = {
+    --                     globals = { "vim", "minetest" },
+    --                 },
+    --             },
+    --         },
+    --         on_attach = on_attach,
+    --     })
+    -- end,
     ["clangd"] = function()
         -- Fix for multiple offset encoding error
         local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -66,12 +66,10 @@ require("null-ls").setup({
 require("mason-null-ls").setup({
     automatic_setup = true,
 })
-require("mason-null-ls").setup_handlers()
 
 require("mason-nvim-dap").setup({
     automatic_setup = true,
 })
-require("mason-nvim-dap").setup_handlers()
 
 -- Language servers not handled by Mason
 -- require("lspconfig").qmlls.setup({
