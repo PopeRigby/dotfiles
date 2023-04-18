@@ -1,5 +1,6 @@
 return {
     "akinsho/toggleterm.nvim",
+    lazy = false,
     opts = {
         open_mapping = "<c-T>",
         hide_numbers = true, -- hide the number column in toggleterm buffers
