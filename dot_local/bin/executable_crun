@@ -1,9 +1,11 @@
 #!/bin/bash
 
+CPP_VERSION="c++20"
+
 # Check if any arguments are provided
 if [ $# -eq 0 ]; then
     # No arguments provided, compile and run all .cpp files
-    if g++ -o my_program -std=c++20 ./*.cpp; then
+    if g++ -o my_program -std=${CPP_VERSION} ./*.cpp; then
         ./my_program
     else
         echo "Compilation of .cpp files failed."
@@ -17,7 +19,7 @@ else
         output_name="${input_file%.cpp}"
         
         # Compile the specified .cpp file
-        if g++ -o "$output_name" "$input_file" -std=c++20; then
+        if g++ -o "$output_name" "$input_file" -std=${CPP_VERSION}; then
             "./$output_name"
         else
             echo "Compilation of $input_file failed."
