@@ -1,7 +1,30 @@
 #!/bin/bash
 
-if [ -z "$1" ]; then
-    g++ *.cpp && ./a.out
+# Check if any arguments are provided
+if [ $# -eq 0 ]; then
+    # No arguments provided, compile and run all .cpp files
+    if g++ -o my_program ./*.cpp; then
+        echo "Compiled all .cpp files successfully."
+        ./my_program
+    else
+        echo "Compilation of .cpp files failed."
+    fi
 else
-    g++ $1 && ./a.out
+    # Argument provided, compile and run the specified .cpp file
+    input_file="$1"
+    
+    # Check if the specified .cpp file exists
+    if [ -f "$input_file" ]; then
+        output_name="${input_file%.cpp}"
+        
+        # Compile the specified .cpp file
+        if g++ -o "$output_name" "$input_file"; then
+            echo "Compiled $input_file successfully."
+            "./$output_name"
+        else
+            echo "Compilation of $input_file failed."
+        fi
+    else
+        echo "$input_file not found."
+    fi
 fi
