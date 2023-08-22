@@ -1,14 +1,30 @@
 #!/bin/bash
 
 CPP_VERSION="c++20"
+release_mode=false
+
+# Check if "--release" flag is present
+if [[ "$*" == *"--release"* ]]; then
+    release_mode=true
+    # Remove the "--release" flag from the arguments
+    set -- "${@/"--release"/}"
+fi
 
 # Check if any arguments are provided
 if [ $# -eq 0 ]; then
     # No arguments provided, compile and run all .cpp files
-    if g++ -o my_program -std=${CPP_VERSION} ./*.cpp; then
-        ./my_program
+    if [ "$release_mode" = true ]; then
+        if g++ -o my_program -std=${CPP_VERSION} -O2 -DNDEBUG ./*.cpp; then
+            ./my_program
+        else
+            echo "Compilation of .cpp files failed."
+        fi
     else
-        echo "Compilation of .cpp files failed."
+        if g++ -o my_program -std=${CPP_VERSION} -ggdb ./*.cpp; then
+            ./my_program
+        else
+            echo "Compilation of .cpp files failed."
+        fi
     fi
 else
     # Argument provided, compile and run the specified .cpp file
@@ -19,10 +35,18 @@ else
         output_name="${input_file%.cpp}"
         
         # Compile the specified .cpp file
-        if g++ -o "$output_name" "$input_file" -std=${CPP_VERSION}; then
-            "./$output_name"
+        if [ "$release_mode" = true ]; then
+            if g++ -o "$output_name" "$input_file" -std=${CPP_VERSION} -O2 -DNDEBUG; then
+                "./$output_name"
+            else
+                echo "Compilation of $input_file failed."
+            fi
         else
-            echo "Compilation of $input_file failed."
+            if g++ -o "$output_name" "$input_file" -std=${CPP_VERSION} -ggdb; then
+                "./$output_name"
+            else
+                echo "Compilation of $input_file failed."
+            fi
         fi
     else
         echo "$input_file not found."
