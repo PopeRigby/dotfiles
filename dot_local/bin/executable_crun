@@ -14,8 +14,8 @@ def compile_and_run(filename, flags):
 
 def main():
     parser = argparse.ArgumentParser(description="Compile and run C++ programs")
-    parser.add_argument("filename", nargs="?", help="Name of the .cpp file to compile and run")
-    parser.add_argument("--release", action="store_true", help="Compile in release mode")
+    parser.add_argument("filename", nargs="*", help="Names of the .cpp file(s) to compile and run")
+    parser.add_argument("-r", "--release", action="store_true", help="Compile in release mode")
 
     args = parser.parse_args()
 
@@ -27,10 +27,11 @@ def main():
         flags.append("-ggdb")
 
     if args.filename:
-        if os.path.isfile(args.filename) and args.filename.endswith(".cpp"):
-            compile_and_run(args.filename, flags)
-        else:
-            print(f"{args.filename} not found or not a .cpp file.")
+        for filename in args.filename:
+            if os.path.isfile(filename) and filename.endswith(".cpp"):
+                compile_and_run(filename, flags)
+            else:
+                print(f"{filename} not found or not a .cpp file.")
     else:
         cpp_files = [file for file in os.listdir() if file.endswith(".cpp")]
         if len(cpp_files) == 1:
@@ -45,3 +46,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
