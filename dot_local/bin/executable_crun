@@ -1,54 +1,47 @@
-#!/bin/bash
+#!/usr/bin/env python3
 
-CPP_VERSION="c++20"
-release_mode=false
+import os
+import argparse
 
-# Check if "--release" flag is present
-if [[ "$*" == *"--release"* ]]; then
-    release_mode=true
-    # Remove the "--release" flag from the arguments
-    set -- "${@/"--release"/}"
-fi
-
-# Check if any arguments are provided
-if [ $# -eq 0 ]; then
-    # No arguments provided, compile and run all .cpp files
-    if [ "$release_mode" = true ]; then
-        if g++ -o my_program -std=${CPP_VERSION} -O2 -DNDEBUG ./*.cpp; then
-            ./my_program
-        else
-            echo "Compilation of .cpp files failed."
-        fi
-    else
-        if g++ -o my_program -std=${CPP_VERSION} -ggdb ./*.cpp; then
-            ./my_program
-        else
-            echo "Compilation of .cpp files failed."
-        fi
-    fi
-else
-    # Argument provided, compile and run the specified .cpp file
-    input_file="$1"
+def compile_and_run(filename, flags):
+    output_name = os.path.splitext(filename)[0]
+    command = ["g++", "-o", output_name] + flags + [filename]
     
-    # Check if the specified .cpp file exists
-    if [ -f "$input_file" ]; then
-        output_name="${input_file%.cpp}"
-        
-        # Compile the specified .cpp file
-        if [ "$release_mode" = true ]; then
-            if g++ -o "$output_name" "$input_file" -std=${CPP_VERSION} -O2 -DNDEBUG; then
-                "./$output_name"
-            else
-                echo "Compilation of $input_file failed."
-            fi
-        else
-            if g++ -o "$output_name" "$input_file" -std=${CPP_VERSION} -ggdb; then
-                "./$output_name"
-            else
-                echo "Compilation of $input_file failed."
-            fi
-        fi
-    else
-        echo "$input_file not found."
-    fi
-fi
+    if os.system(" ".join(command)) == 0:
+        os.system("./" + output_name)
+    else:
+        print(f"Compilation of {filename} failed.")
+
+def main():
+    parser = argparse.ArgumentParser(description="Compile and run C++ programs")
+    parser.add_argument("filename", nargs="?", help="Name of the .cpp file to compile and run")
+    parser.add_argument("--release", action="store_true", help="Compile in release mode")
+
+    args = parser.parse_args()
+
+    flags = ["-std=c++20", "-pedantic-errors"]
+    
+    if args.release:
+        flags.extend(["-O2", "-DNDEBUG"])
+    else:
+        flags.append("-ggdb")
+
+    if args.filename:
+        if os.path.isfile(args.filename) and args.filename.endswith(".cpp"):
+            compile_and_run(args.filename, flags)
+        else:
+            print(f"{args.filename} not found or not a .cpp file.")
+    else:
+        cpp_files = [file for file in os.listdir() if file.endswith(".cpp")]
+        if len(cpp_files) == 1:
+            compile_and_run(cpp_files[0], flags)
+        elif cpp_files:
+            if os.system("g++ -o my_program *.cpp") == 0:
+                os.system("./my_program")
+            else:
+                print("Compilation of .cpp files failed.")
+        else:
+            print("No .cpp files found in the directory.")
+
+if __name__ == "__main__":
+    main()
