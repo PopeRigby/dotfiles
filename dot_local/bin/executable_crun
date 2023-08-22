@@ -3,24 +3,38 @@
 import os
 import argparse
 
+
 def compile_and_run(filename, flags):
     output_name = os.path.splitext(filename)[0]
     command = ["g++", "-o", output_name] + flags + [filename]
-    
+
     if os.system(" ".join(command)) == 0:
         os.system("./" + output_name)
     else:
         print(f"Compilation of {filename} failed.")
 
+
 def main():
     parser = argparse.ArgumentParser(description="Compile and run C++ programs")
-    parser.add_argument("filename", nargs="*", help="Names of the .cpp file(s) to compile and run")
-    parser.add_argument("-r", "--release", action="store_true", help="Compile in release mode")
+    parser.add_argument(
+        "filename", nargs="*", help="Names of the .cpp file(s) to compile and run"
+    )
+    parser.add_argument(
+        "-r", "--release", action="store_true", help="Compile in release mode"
+    )
 
     args = parser.parse_args()
 
-    flags = ["-std=c++20", "-pedantic-errors"]
-    
+    flags = [
+        "-std=c++20",
+        "-pedantic-errors",
+        "-Wall",
+        "-Weffc++",
+        "-Wextra",
+        "-Wconversion",
+        "-Wsign-conversion",
+    ]
+
     if args.release:
         flags.extend(["-O2", "-DNDEBUG"])
     else:
@@ -44,6 +58,6 @@ def main():
         else:
             print("No .cpp files found in the directory.")
 
+
 if __name__ == "__main__":
     main()
-
