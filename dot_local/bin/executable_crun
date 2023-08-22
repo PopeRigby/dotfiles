@@ -33,6 +33,7 @@ def main():
         "-Wextra",
         "-Wconversion",
         "-Wsign-conversion",
+        "-Werror",
     ]
 
     if args.release:
