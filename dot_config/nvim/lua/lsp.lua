@@ -34,18 +34,18 @@ require("mason-lspconfig").setup_handlers({
         })
     end,
     -- Targetted overrides for specific servers
-    -- ["sumneko_lua"] = function()
-    --     lspconfig.sumneko_lua.setup({
-    --         settings = {
-    --             Lua = {
-    --                 diagnostics = {
-    --                     globals = { "vim", "minetest" },
-    --                 },
-    --             },
-    --         },
-    --         on_attach = on_attach,
-    --     })
-    -- end,
+    ["lua_ls"] = function()
+        lspconfig.lua_ls.setup({
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = { "vim", "minetest" },
+                    },
+                },
+            },
+            on_attach = on_attach,
+        })
+    end,
     ["clangd"] = function()
         -- Fix for multiple offset encoding error
         local capabilities = vim.lsp.protocol.make_client_capabilities()
