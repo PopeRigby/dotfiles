@@ -3,3 +3,4 @@ Checks: >
     performance-*,
     modernize-*,
     readability-*,
+    -modernize-use-trailing-return-type,
