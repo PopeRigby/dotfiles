@@ -28,6 +28,14 @@ detect_filetype("pmodule", "python")
 detect_filetype("pybuild", "python")
 detect_filetype("settings", "dosini")
 
+-- Use YAML syntax highlighting for .clang-* files
+autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = {"dot_clang-format", ".clang-format", "dot_clang-tidy", ".clang-tidy"},
+    callback = function()
+        vim.bo.filetype = "yaml"
+    end,
+})
+
 -- Enable built-in plugins
 vim.cmd.packadd("termdebug")
 
