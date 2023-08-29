@@ -43,16 +43,10 @@ require("mason-lspconfig").setup_handlers({
                     },
                 },
             },
-            on_attach = on_attach,
         })
     end,
     ["clangd"] = function()
-        -- Fix for multiple offset encoding error
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities.offsetEncoding = { "utf-16" }
         lspconfig.clangd.setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
             cmd = {
                 "clangd",
                 "--background-index",
