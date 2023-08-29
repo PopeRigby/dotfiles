@@ -1,4 +1,3 @@
 Language: Cpp
 IndentWidth: 4
 UseTab: Never
-NamespaceIndentation: All
