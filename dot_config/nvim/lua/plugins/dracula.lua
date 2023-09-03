@@ -1,5 +1,5 @@
 return {
-    "ellisonleao/gruvbox.nvim",
+    "Mofiqul/dracula.nvim",
     lazy = true,
     priority = 1000,
 }
