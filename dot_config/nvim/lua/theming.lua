@@ -1,7 +1,7 @@
 vim.o.background = "dark"
 
-require("dracula").setup({
-    transparent_bg = true,
+require("gruvbox").setup({
+    transparent_mode = true,
 })
 
-vim.cmd("colorscheme dracula")
+vim.cmd("colorscheme gruvbox")
