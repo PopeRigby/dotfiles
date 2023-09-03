@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 chezmoi add ~/.config/nvim/lazy-lock.json
 chezmoi git add dot_config/nvim/lazy-lock.json 
-chezmoi git -- commit -m "Update Neovim plugins"
+chezmoi git -- commit -m "neovim: update plugins"
 
