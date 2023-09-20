@@ -30,3 +30,12 @@ end
 if type -q python
     alias py "python"
 end
+
+if type -q systemctl
+    alias sys "sudo systemctl"
+    alias syu "systemctl --user"
+end
+
+if type -q journalctl
+    alias jrn "sudo journalctl"
+end
