@@ -39,3 +39,6 @@ end
 if type -q journalctl
     alias jrn "sudo journalctl"
 end
+
+# Miscellaneous aliases
+alias haddock "ssh cassidy@192.168.1.184"
