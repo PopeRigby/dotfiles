@@ -1,5 +1,17 @@
 return {
     "nvim-telescope/telescope.nvim",
+    dependencies = {
+        "nvim-lua/popup.nvim",
+        "nvim-tree/nvim-web-devicons",
+        {
+            'nvim-telescope/telescope-fzf-native.nvim',
+            build = 'make'
+        },
+    },
+    opts = function ()
+       require('telescope').setup()
+       require('telescope').load_extension('fzf')
+    end,
     keys = {
         {
             "<Leader>t",
@@ -17,5 +29,4 @@ return {
             desc = "Explore buffers in Telescope"
         }
     },
-    dependencies = { "nvim-lua/popup.nvim", "nvim-tree/nvim-web-devicons", },
 }
