@@ -1,5 +1,0 @@
-#!/bin/bash
-
-QUERY=$1
-
-firefox --new-tab "https://duckduckgo.com/?t=ffab&q=${QUERY}"
