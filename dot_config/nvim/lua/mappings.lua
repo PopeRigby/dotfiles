@@ -12,9 +12,6 @@ map("n", "<Leader><Tab>", ":bn<CR>", { desc = "Move to next buffer" })
 -- Toggle line numbers on/off
 map("n", "<Leader>N", ":set invnumber<CR>", { desc = "Toggle line numbers" })
 
--- Preview html file in firefox
-map("n", "<Leader>p", ":silent update<Bar>silent !firefox %:p &<CR>", { desc = "Preview HTML file in Firefox" })
-
 -- Yank to the end of line
 map("n", "Y", "y$", {desc="Yank to the end of the line"})
 
