@@ -4,4 +4,11 @@ return {
     opts = {
         border = "none"
     },
+    keys = {
+        {
+            "<leader>m",
+            "<cmd>Glow<cr>",
+            desc = "Preview markdown"
+        }
+    }
 }
