@@ -16,6 +16,7 @@ if type -q nvim
     set -x MANPAGER "$(command -v nvim) -c 'Man!' -o -"
     set -x EDITOR "$(command -v nvim)"
     alias vim "nvim"
+    alias vi "nvim"
 end
 
 source ~/.config/fish/aliases.fish
