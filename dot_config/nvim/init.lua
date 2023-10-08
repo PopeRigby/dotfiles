@@ -1,6 +1,6 @@
 require("lazy_config")
 require("lsp")
-require("utils")
+require("misc")
 require("options")
 require("mappings")
 require("theming")
