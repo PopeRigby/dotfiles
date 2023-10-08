@@ -8,13 +8,7 @@ local config = wezterm.config_builder()
 
 local settings = {
     enable_wayland = true,
-    font = wezterm.font("FiraMono Nerd Font Mono"),
-    font_rules = {
-        {
-            italic = true,
-            font = wezterm.font("FiraMono Nerd Font Mono", { italic = false }),
-        },
-    },
+    font = wezterm.font("JetBrains Mono"),
     font_size = 11.0,
     enable_tab_bar = true,
     window_background_opacity = 0.9,
