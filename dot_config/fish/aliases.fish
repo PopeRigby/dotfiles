@@ -1,6 +1,6 @@
 # Set aliases if programs are present
-if type -q exa
-    alias ls "exa"
+if type -q eza
+    alias ls "eza"
 end
 
 if type -q bat
