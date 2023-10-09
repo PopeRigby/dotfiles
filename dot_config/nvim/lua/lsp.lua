@@ -9,31 +9,32 @@ end
 
 -- Format on save function
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-local on_attach =
-    function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                group = augroup,
-                buffer = bufnr,
-                callback = function()
-                    vim.lsp.buf.format({ bufnr = bufnr })
-                end,
-            })
-        end
-    end,
+local format = function(client, bufnr)
+    if client.supports_method("textDocument/formatting") then
+        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            group = augroup,
+            buffer = bufnr,
+            callback = function()
+                vim.lsp.buf.format({ bufnr = bufnr })
+            end,
+        })
+    end
+end
 
-    -- Mason
-    require("mason").setup()
+-- Mason
+require("mason").setup()
 -- Automatically setup servers installed with mason.nvim
 require("mason-lspconfig").setup_handlers({
     -- Default handler
     function(server_name)
         lspconfig[server_name].setup({
-            on_attach = on_attach,
+            -- Call format() on save
+            on_attach = format,
         })
     end,
     -- Targetted overrides for specific servers
+    -- on_attach = format is required for each
     ["lua_ls"] = function()
         lspconfig.lua_ls.setup({
             settings = {
@@ -43,6 +44,7 @@ require("mason-lspconfig").setup_handlers({
                     },
                 },
             },
+            on_attach = format
         })
     end,
     ["clangd"] = function()
@@ -60,14 +62,15 @@ require("mason-lspconfig").setup_handlers({
                 "--header-insertion-decorators",
                 "--header-insertion=iwyu",
                 "--pch-storage=memory",
-            }
+            },
+            on_attach = format
         })
     end,
 })
 
 -- null-ls
 require("null-ls").setup({
-    on_attach = on_attach,
+    on_attach = format,
 })
 
 -- Mason null-ls
