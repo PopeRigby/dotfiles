@@ -1,6 +1,7 @@
 # Set aliases if programs are present
 if type -q eza
     alias ls "eza"
+    alias tree "eza -T"
 end
 
 if type -q bat
