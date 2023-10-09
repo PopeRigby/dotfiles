@@ -13,11 +13,10 @@ map("n", "<Leader><Tab>", ":bn<CR>", { desc = "Move to next buffer" })
 map("n", "<Leader>N", ":set invnumber<CR>", { desc = "Toggle line numbers" })
 
 -- Yank to the end of line
-map("n", "Y", "y$", {desc="Yank to the end of the line"})
+map("n", "Y", "y$", { desc = "Yank to the end of the line" })
 
 -- Replace spaces with underscores in selection
-map("v", "<Leader>u", ":s/\\%V /_/g<CR>", {desc="Replace spaces with underscores in selection"})
-
+map("v", "<Leader>u", ":s/\\%V /_/g<CR>", { desc = "Replace spaces with underscores in selection" })
 
 -- DAP Bindings
 local dap = require("dap")
@@ -28,12 +27,12 @@ map("n", "<Leader>dn", dap.step_over)
 map("n", "<Leader>di", dap.step_into)
 map("n", "<Leader>do", dap.step_out)
 map("n", "<Leader>dC", function()
-    dap.clear_breakpoints()
-    require("notify")("Breakpoints cleared", "warn")
+	dap.clear_breakpoints()
+	require("notify")("Breakpoints cleared", "warn")
 end)
 map("n", "<Leader>de", function()
-    dap.clear_breakpoints()
-    dap.terminate()
+	dap.clear_breakpoints()
+	dap.terminate()
 end)
 
 -- LSP bindings
