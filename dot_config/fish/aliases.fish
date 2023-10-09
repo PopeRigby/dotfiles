@@ -12,6 +12,10 @@ if type -q rg
     alias grep "rg"
 end
 
+if type -q dust
+    alias du "dust"
+end
+
 if type -q python
     alias py "python"
 end
