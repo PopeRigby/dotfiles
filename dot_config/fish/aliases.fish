@@ -8,6 +8,10 @@ if type -q bat
     alias cat "bat"
 end
 
+if type -q rg
+    alias grep "rg"
+end
+
 if type -q python
     alias py "python"
 end
