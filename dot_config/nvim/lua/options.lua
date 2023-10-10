@@ -21,6 +21,7 @@ local options = {
     laststatus  = 2,                                     -- Enable global statusline
     cmdheight   = 0,                                     -- Shrink cmd area when not in use
     mouse       = "",                                    -- Disable mouse
+    spell_lang  = { "en_us" }                            -- Set language for spell checking
 }
 
 for k, v in pairs(options) do
