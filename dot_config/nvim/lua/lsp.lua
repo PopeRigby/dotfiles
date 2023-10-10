@@ -69,21 +69,12 @@ require("mason-lspconfig").setup_handlers({
 })
 
 -- null-ls
-require("null-ls").setup({
-    on_attach = format,
-})
-
--- Mason null-ls
 require("mason-null-ls").setup({
-    automatic_setup = true,
+    handlers = {}
 })
+require("null-ls").setup()
 
+-- DAP
 require("mason-nvim-dap").setup({
-    automatic_setup = true,
+    handlers = {}
 })
-
--- Language servers not handled by Mason
--- require("lspconfig").qmlls.setup({
---     cmd = { "qmlls6" },
---     filetypes = { "qml" }
--- })
