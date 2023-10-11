@@ -12,7 +12,7 @@ local options = {
     smartcase   = true,                                  -- Do not ignore case with capitals while searching
     showmode    = false,                                 -- we don't need to see things like -- INSERT -- anymore
     splitbelow  = true,                                  -- Put new windows below current
-    splitright  = true,                                  -- Put new windows right of current
+    splitright  = true,                                  -- Put new windows right of curren
     updatetime  = 250,                                   -- Reduce updatetime which affects CursorHold
     autoindent  = true,                                  -- Copy indent from current line when starting a new line
     smartindent = true,                                  -- Do smart autoindenting when starting a new line
@@ -21,7 +21,7 @@ local options = {
     laststatus  = 2,                                     -- Enable global statusline
     cmdheight   = 0,                                     -- Shrink cmd area when not in use
     mouse       = "",                                    -- Disable mouse
-    spell       = true,                                  -- Enable spell checking
+    spell       = true,                                  -- Enable spel checking
     spelllang   = { "en_us" }                            -- Set language for spell checking
 }
 
