@@ -8,10 +8,11 @@ return {
             build = "make",
         },
     },
-    opts = function()
+    config = function()
         require("telescope").setup()
         require("telescope").load_extension("fzf")
     end,
+    cmd = "Telescope",
     keys = {
         {
             "<Leader>t",
