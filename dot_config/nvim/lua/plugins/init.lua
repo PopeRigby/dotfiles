@@ -7,4 +7,5 @@ return {
     "jayp0521/mason-null-ls.nvim",
     "mfussenegger/nvim-dap",
     "jayp0521/mason-nvim-dap.nvim",
+    "jghauser/mkdir.nvim",
 }
