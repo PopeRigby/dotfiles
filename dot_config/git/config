@@ -1,3 +1,5 @@
+; vim: set filetype=gitconfig : 
+
 [user]
 	name = Pope_Rigby
 	email = poperigby@mailbox.org
@@ -24,7 +26,7 @@
 [pull]
 	ff = only
 [mergetool "diffconflicts"]
-	cmd = nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+	cmd = "nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\""
 	trustExitCode = true
 [mergetool]
 	keepBackup = false
