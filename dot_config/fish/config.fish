@@ -12,10 +12,10 @@ end
 set -g fish_greeting
 
 # Set termcap database location
-set -g TERMINFO ~/.local/share/terminfo
+set -x TERMINFO ~/.local/share/terminfo
 
 # Enable WezTerm as termcap
-set -g TERM wezterm
+set -x TERM wezterm
 
 # If Neovim is available, set it as the EDITOR and MANPAGER, and alias it to "vim"
 if type -q nvim
