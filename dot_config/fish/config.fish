@@ -1,3 +1,6 @@
+# Set up aliases
+source ~/.config/fish/aliases.fish
+
 # Disable fish greeting
 set -g fish_greeting
 
@@ -19,5 +22,8 @@ else if type -q vi
     alias vim "vi"
 end
 
-# Set up aliases
-source ~/.config/fish/aliases.fish
+# Set XDG variables
+set -x XDG_DATA_HOME ~/.local/share
+set -x XDG_CONFIG_HOME ~/.config
+set -x XDG_STATE_HOME ~/.local/state
+set -x XDG_CACHE_HOME ~/.cache
