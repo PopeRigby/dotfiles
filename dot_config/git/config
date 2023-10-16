@@ -1,4 +1,4 @@
-; vim: set filetype=gitconfig : 
+; vim: set filetype=gitconfig:
 
 [user]
 	name = Pope_Rigby
