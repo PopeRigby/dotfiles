@@ -7,7 +7,7 @@
 [core]
 	editor = nvim
 [alias]
-	yeet = restore .
+	yeet = !"git restore . && git restore --staged . && git clean -df"
 	s = status
 	sw = switch
 	m = switch main
