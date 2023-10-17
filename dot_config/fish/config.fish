@@ -13,10 +13,17 @@ if type -q nvim
     set -x EDITOR "$(type -P nvim)"
     alias vim "nvim"
     alias vi "nvim"
-# Look for vi if we don't have Neovim
 else if type -q vi
+    # Look for vi if we don't have Neovim
     set -x EDITOR "$(type -P vi)"
     alias vim "vi"
+end
+
+# Add flatpak aliases to PATH
+for flatpakdir in ~/.local/share/flatpak/exports/bin /var/lib/flatpak/exports/bin
+    if test -d $flatpakdir
+        contains $flatpakdir $PATH; or set -a PATH $flatpakdir
+    end
 end
 
 # Set XDG variables
