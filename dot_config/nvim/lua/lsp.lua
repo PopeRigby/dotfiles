@@ -66,6 +66,18 @@ require("mason-lspconfig").setup_handlers({
             on_attach = format,
         })
     end,
+    ["rust_analyzer"] = function()
+        lspconfig.rust_analyzer.setup({
+            settings = {
+                ["rust-analyzer"] = {
+                    checkOnSave = {
+                        command = "clippy"
+                    }
+                },
+            },
+            on_attach = format,
+        })
+    end,
 })
 
 -- null-ls
