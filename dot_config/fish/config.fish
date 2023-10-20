@@ -20,6 +20,14 @@ for flatpakdir in ~/.local/share/flatpak/exports/bin /var/lib/flatpak/exports/bi
     end
 end
 
+# Add ~/.local/bin and ~/.local/share/cargo/bin to PATH if they exist
+if test -d ~/.local/bin
+    set -x fish_user_paths "$fish_user_paths ~/.local/bin"
+end
+if test -d ~/.local/share/cargo/bin
+    set -x fish_user_paths "$fish_user_paths ~/.local/share/cargo/bin"
+end
+
 # Set XDG variables
 set -x XDG_DATA_HOME ~/.local/share
 set -x XDG_CONFIG_HOME ~/.config
