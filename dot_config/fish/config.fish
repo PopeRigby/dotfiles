@@ -1,14 +1,6 @@
 # Disable fish greeting
 set -g fish_greeting
 
-# Check if termcap entry exists for WezTerm
-# if test -e ~/.local/share/terminfo/w/wezterm
-#     # Set termcap database location
-#     set -x TERMINFO ~/.local/share/terminfo
-#     # Enable WezTerm as termcap
-#     set -x TERM wezterm
-# end
-
 # If Neovim is available, set it as the EDITOR and MANPAGER, and alias it to "vim" and "vi"
 if type -q nvim
     set -x MANPAGER "$(type -P nvim) -c 'Man!' -o -"
