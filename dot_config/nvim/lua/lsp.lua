@@ -35,18 +35,6 @@ require("mason-lspconfig").setup_handlers({
     end,
     -- Targetted overrides for specific servers
     -- on_attach = format is required for each
-    ["lua_ls"] = function()
-        lspconfig.lua_ls.setup({
-            settings = {
-                Lua = {
-                    diagnostics = {
-                        globals = { "vim", "minetest" },
-                    },
-                },
-            },
-            on_attach = format,
-        })
-    end,
     ["clangd"] = function()
         lspconfig.clangd.setup({
             cmd = {
@@ -62,6 +50,18 @@ require("mason-lspconfig").setup_handlers({
                 "--header-insertion-decorators",
                 "--header-insertion=iwyu",
                 "--pch-storage=memory",
+            },
+            on_attach = format,
+        })
+    end,
+    ["lua_ls"] = function()
+        lspconfig.lua_ls.setup({
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = { "vim", "minetest" },
+                    },
+                },
             },
             on_attach = format,
         })
