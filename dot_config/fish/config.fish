@@ -22,10 +22,10 @@ end
 
 # Add ~/.local/bin and ~/.local/share/cargo/bin to PATH if they exist
 if test -d ~/.local/bin
-    set -x fish_user_paths "$fish_user_paths ~/.local/bin"
+    fish_add_path "$HOME/.local/bin"
 end
 if test -d ~/.local/share/cargo/bin
-    set -x fish_user_paths "$fish_user_paths ~/.local/share/cargo/bin"
+    fish_add_path "$HOME/.local/share/cargo/bin"
 end
 
 # Set XDG variables
