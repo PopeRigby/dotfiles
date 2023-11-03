@@ -27,6 +27,7 @@ end
 detect_filetype("pmodule", "python")
 detect_filetype("pybuild", "python")
 detect_filetype("settings", "dosini")
+detect_filetype("slint", "slint")
 
 -- Use YAML syntax highlighting for .clang-* files
 autocmd({ "BufRead", "BufNewFile" }, {
