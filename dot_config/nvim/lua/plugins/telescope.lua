@@ -29,5 +29,10 @@ return {
             ":Telescope buffers <CR>",
             desc = "Explore buffers in Telescope",
         },
+        {
+            "<Leader>f",
+            ":Telescope live_grep <CR>",
+            desc = "Search in files",
+        },
     },
 }
