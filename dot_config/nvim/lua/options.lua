@@ -29,8 +29,8 @@ local options = {
     spell         = true,        -- Enable spell checking
     spelllang     = { "en_us" }, -- Set language for spell checking
     termguicolors = true,        -- Enables 24-bit RGB color in the TUI
-    list          = true,
-    listchars     = { tab = "⇥ ", leadmultispace = "┊ ", trail = "␣", nbsp = "⍽" }
+    list          = true,        -- Show list characters
+    listchars     = { tab = "⇥ ", leadmultispace = "┊ ", nbsp = "⍽" }
 }
 
 for k, v in pairs(options) do
