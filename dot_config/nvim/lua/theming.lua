@@ -1,7 +1,7 @@
 vim.o.background = "dark"
 
 require("gruvbox").setup({
-    transparent_mode = true,
+    transparent_mode = false,
     overrides = {
         -- Make float backgrounds darker (and not transparent)
         NormalFloat = { bg = "#282828" },
