@@ -32,7 +32,8 @@ if type -q borgmatic
     alias borgmatic "sudo borgmatic"
 end
 
-if type -q systemctl
+# Only alias if systemctl can successfully run
+if /usr/bin/systemctl &> /dev/null
     alias sys "sudo systemctl"
     alias syu "systemctl --user"
 end
