@@ -2,3 +2,7 @@ Host *
     ServerAliveInterval 20
     TCPKeepAlive no
     Compression yes
+
+Host 3.142.191.145
+    User ubuntu
+    IdentityFile ~/.ssh/Cassidy.pem
