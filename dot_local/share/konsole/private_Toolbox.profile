@@ -7,6 +7,10 @@ Command=/usr/bin/distrobox enter toolbox
 Name=Toolbox
 Parent=FALLBACK/
 
+[Interaction Options]
+OpenLinksByDirectClickEnabled=true
+UnderlineFilesEnabled=true
+
 [Scrolling]
 HighlightScrolledLines=false
 HistorySize=10000
