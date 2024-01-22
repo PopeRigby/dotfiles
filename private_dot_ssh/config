@@ -3,6 +3,6 @@ Host *
     TCPKeepAlive no
     Compression yes
 
-Host 3.142.191.145
+Host cassidy.arcology.builders
     User ubuntu
     IdentityFile ~/.ssh/Cassidy.pem
