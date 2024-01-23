@@ -7,7 +7,7 @@ return {
         "handlebars",
         "html",
         "javascript",
-        "jsx",
+        "javascriptreact",
         "markdown",
         "php",
         "rescript",
