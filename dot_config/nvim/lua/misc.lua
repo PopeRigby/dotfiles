@@ -31,6 +31,7 @@ detect_filetype("slint", "slint")
 detect_filetype("kube", "systemd")
 detect_filetype("network", "systemd")
 detect_filetype("container", "systemd")
+detect_filetype("typst", "typst")
 
 -- Use YAML syntax highlighting for .clang-* files
 autocmd({ "BufRead", "BufNewFile" }, {
