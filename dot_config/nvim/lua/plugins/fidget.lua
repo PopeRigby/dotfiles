@@ -5,6 +5,9 @@ return {
     opts = {
         window = {
             blend = 0
+        },
+        display = {
+            done_icon = ""
         }
     },
 }
