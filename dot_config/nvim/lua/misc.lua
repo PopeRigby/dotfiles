@@ -1,6 +1,6 @@
 local autocmd = vim.api.nvim_create_autocmd
 
--- Misc autocommands
+-- Misc auto commands
 autocmd({ "TextYankPost" }, { -- Highlight text briefly after yank
     pattern = "*",
     callback = function()
@@ -13,36 +13,6 @@ autocmd({ "TextYankPost" }, { -- Highlight text briefly after yank
 --         io.popen("chezmoi apply")
 --     end,
 -- })
-
--- Filetype detection
-local function detect_filetype(extension, filetype)
-    autocmd({ "BufRead", "BufNewFile" }, {
-        pattern = "*." .. extension,
-        callback = function()
-            vim.bo.filetype = filetype
-        end,
-    })
-end
-
-detect_filetype("pmodule", "python")
-detect_filetype("pybuild", "python")
-detect_filetype("settings", "dosini")
-detect_filetype("slint", "slint")
-detect_filetype("kube", "systemd")
-detect_filetype("network", "systemd")
-detect_filetype("container", "systemd")
-detect_filetype("typst", "typst")
-
--- Use YAML syntax highlighting for .clang-* files
-autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = { "dot_clang-format", ".clang-format", "dot_clang-tidy", ".clang-tidy" },
-    callback = function()
-        vim.bo.filetype = "yaml"
-    end,
-})
-
--- Enable built-in plugins
-vim.cmd.packadd("termdebug")
 
 -- Disable built-in plugins
 local disabled_built_ins = {
