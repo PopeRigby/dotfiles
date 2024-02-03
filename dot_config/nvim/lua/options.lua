@@ -30,7 +30,9 @@ local options = {
     spelllang     = { "en_us" }, -- Set language for spell checking
     termguicolors = true,        -- Enables 24-bit RGB color in the TUI
     list          = true,        -- Show list characters
-    listchars     = { tab = "⇥ ", leadmultispace = "┊ ", nbsp = "⍽" }
+    listchars     = { tab = "⇥ ", leadmultispace = "┊ ", nbsp = "⍽" },
+    breakindent   = true,        -- Visually indent wrapped lines
+    linebreak     = true         -- Enable line breaking at word boundaries
 }
 
 for k, v in pairs(options) do
