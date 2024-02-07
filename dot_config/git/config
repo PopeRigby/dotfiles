@@ -1,48 +1,60 @@
 ; vim: set filetype=gitconfig:
 
 [user]
-	name = Pope_Rigby
-	email = poperigby@mailbox.org
-	; signingkey = 697A8ADE6068CB54
+    name = Pope_Rigby
+    email = poperigby@mailbox.org
+    ; signingkey = 697A8ADE6068CB54
+
 [core]
-	editor = nvim
+    editor = nvim
+    excludesFile = /home/cassidy/.config/git/ignore
+
 [alias]
-	yeet = !"git restore . && git restore --staged . && git clean -df"
-	s = status
-	sw = switch
-	m = switch main
-	h = log --graph --oneline
+    yeet = !"git restore . && git restore --staged . && git clean -df"
+    s = status
+    sw = switch
+    m = switch main
+    h = log --graph --oneline
+
 [diff]
-	tool = nvim
+    tool = nvim
+
 [merge]
-	tool = diffconflicts
+    tool = diffconflicts
+
 [credential]
-	helper = store
+    helper = store
+
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 [pull]
-	ff = only
+    ff = only
 [mergetool "diffconflicts"]
-	cmd = "nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\""
-	trustExitCode = true
+    cmd = "nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\""
+    trustExitCode = true
 [mergetool]
-	keepBackup = false
+    keepBackup = false
 
 [sendemail]
-	smtpserver = smtp.mailbox.org
-	smtpuser = poperigby@mailbox.org
-	smtpencryption = ssl
-	smtpserverport = 465
+    smtpserver = smtp.mailbox.org
+    smtpuser = poperigby@mailbox.org
+    smtpencryption = ssl
+    smtpserverport = 465
+
 [color]
-	ui = true
+    ui = true
+
 [init]
-	defaultBranch = main
+    defaultBranch = main
+
 [push]
-	default = current
+    default = current
+
 [safe]
-	directory = /home/cassidy/.local/share/package-list
-[commit]
-	; gpgsign = true
+    directory = /home/cassidy/.local/share/package-list
+
+[advice]
+    detachedHead = false
