@@ -10,11 +10,4 @@ return {
         insert_mappings = true, -- whether or not the open mapping applies in insert mode
         direction = "float",
     },
-    keys = {
-        {
-            "<Leader>g",
-            ":TermExec cmd='command lazygit'<CR>",
-            desc = "Open LazyGit in a terminal",
-        },
-    },
 }
