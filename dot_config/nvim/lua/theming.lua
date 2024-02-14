@@ -1,6 +1,7 @@
 vim.o.background = "dark"
 
 require("gruvbox").setup({
+    transparent_mode = true,
     italic = {
         strings = false
     },
@@ -16,6 +17,9 @@ require("gruvbox").setup({
 
         -- Make whitespace easier to see
         Whitespace               = { fg = "#928374" },
+
+        -- Make float backgrounds darker (and not transparent)
+        NormalFloat              = { bg = "#282828" },
     },
 })
 
