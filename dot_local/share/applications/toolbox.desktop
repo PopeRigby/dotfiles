@@ -2,7 +2,7 @@
 Name=Toolbox
 Comment=Terminal entering PopeRigby's toolbox
 Categories=System;Utility
-Exec=/usr/bin/konsole --profile Toolbox
+Exec=/usr/bin/wezterm --config "default_prog = { '/usr/bin/distrobox', 'enter', 'toolbox' }" start
 Icon=/home/cassidy/.local/share/icons/distrobox/arch.png
 Keywords=distrobox;
 NoDisplay=false
