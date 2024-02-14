@@ -7,7 +7,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 local settings = {
-    enable_wayland = true,
+    enable_wayland = false,
     font = wezterm.font("JetBrains Mono"),
     font_rules = {
         {
