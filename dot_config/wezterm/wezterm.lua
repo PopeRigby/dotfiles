@@ -25,7 +25,6 @@ local settings = {
         "fish",
         "chezmoi",
     },
-    show_update_window = false,
     check_for_updates = false,
     window_padding = {
         left = 0,
