@@ -9,12 +9,6 @@ local config = wezterm.config_builder()
 local settings = {
     enable_wayland = false,
     font = wezterm.font("JetBrains Mono"),
-    font_rules = {
-        {
-            italic = true,
-            font = wezterm.font("JetBrains Mono"),
-        },
-    },
     font_size = 11.0,
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
     enable_tab_bar = true,
