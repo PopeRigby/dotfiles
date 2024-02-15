@@ -12,7 +12,7 @@ local settings = {
     font_rules = {
         {
             italic = true,
-            font = wezterm.font("JetBrains Mono", { italic = false }),
+            font = wezterm.font("JetBrains Mono"),
         },
     },
     font_size = 11.0,
