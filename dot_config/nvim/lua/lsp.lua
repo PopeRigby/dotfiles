@@ -33,7 +33,7 @@ require("mason-lspconfig").setup_handlers({
             on_attach = format,
         })
     end,
-    -- Targetted overrides for specific servers
+    -- Targeted overrides for specific servers
     -- on_attach = format is required for each
     ["clangd"] = function()
         lspconfig.clangd.setup({
