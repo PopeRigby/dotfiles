@@ -2,7 +2,3 @@ Host *
     ServerAliveInterval 20
     TCPKeepAlive no
     Compression yes
-
-Host cassidy.arcology.builders
-    User ubuntu
-    IdentityFile ~/.ssh/Cassidy.pem
