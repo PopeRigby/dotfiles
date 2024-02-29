@@ -39,3 +39,7 @@ source ~/.config/fish/aliases.fish
 
 # Make some programs follow the XDG Base Directory Specification
 source ~/.config/fish/xdg-compliance.fish
+
+if type -q thefuck
+    thefuck --alias | source
+end
