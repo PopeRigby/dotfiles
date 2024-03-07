@@ -16,10 +16,6 @@ autocmd({ "TextYankPost" }, { -- Highlight text briefly after yank
 
 -- Disable built-in plugins
 local disabled_built_ins = {
-    "netrw",
-    "netrwPlugin",
-    "netrwSettings",
-    "netrwFileHandlers",
     "gzip",
     "zip",
     "zipPlugin",
