@@ -19,10 +19,18 @@ set_filetype("network", "systemd")
 set_filetype("container", "systemd")
 set_filetype("typst", "typst")
 
--- Use YAML syntax highlighting for .clang-* files
+-- Use YAML filetype for .clang-* files (enable nice syntax highlighting)
 autocmd({ "BufRead", "BufNewFile" }, {
     pattern = { "dot_clang-format", ".clang-format", "dot_clang-tidy", ".clang-tidy" },
     callback = function()
         vim.bo.filetype = "yaml"
+    end,
+})
+
+-- Set the correct filetype for Justfiles
+autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = "Justfile",
+    callback = function()
+        vim.bo.filetype = "just"
     end,
 })
